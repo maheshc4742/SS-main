@@ -1,0 +1,92 @@
+{
+    "id": "c0a7a273-696a-457d-9362-e7ef9ab62805",
+    "mode": "evaluate",
+    "model": "codbert_base",
+    "ocr_provider": "qwen",
+    "total_marks": 50.0,
+    "obtained_marks": 3.5,
+    "percentage": 7.0,
+    "overall_summary": "Script evaluated with codbert_base (qwen OCR). Overall score: 3.5/50 (7.0%). Evaluated 10 descriptive question(s).",
+    "questions": [
+        {
+            "question": "1",
+            "marks": 3.0,
+            "max_marks": 5.0,
+            "semantic_score": 0.7746,
+            "confidence": 0.7309,
+            "feedback": "Awarded 3 out of 5 marks (60.0%). Semantic similarity: 77%, Confidence: 73%.\n\u2022 Identifies CouchDB/HTTP document operations (0.5/1.0 marks): Criterion 'Identifies CouchDB/HTTP document operations' partially covered. Lacks full depth.\n\u2022 Correct create and read commands (1.0/1.5 marks): Criterion 'Correct create and read commands' partially covered. Lacks full depth.\n\u2022 Correct update and delete commands including revision handling (1.0/1.5 marks): Criterion 'Correct update and delete commands including revision handling' partially covered. Lacks full depth.\n\u2022 Clear example or explanation (0.5/1.0 marks): Criterion 'Clear example or explanation' partially covered. Lacks full depth."
+        },
+        {
+            "question": "2",
+            "marks": 0.0,
+            "max_marks": 5.0,
+            "semantic_score": 0.0,
+            "confidence": 0.5,
+            "feedback": "Awarded 0 out of 5 marks (0.0%). Semantic similarity: 0%, Confidence: 50%.\n\u2022 Uses SUM(amount) as a window aggregate (0.0/2.0 marks): Criterion 'Uses SUM(amount) as a window aggregate' missing or insufficient in the response.\n\u2022 Correct OVER clause with ordering (0.0/1.5 marks): Criterion 'Correct OVER clause with ordering' missing or insufficient in the response.\n\u2022 Partitions by customer when calculating per-customer total (0.0/1.0 marks): Criterion 'Partitions by customer when calculating per-customer total' missing or insufficient in the response.\n\u2022 Valid SQL structure (0.0/0.5 marks): Criterion 'Valid SQL structure' missing or insufficient in the response."
+        },
+        {
+            "question": "3",
+            "marks": 0.0,
+            "max_marks": 5.0,
+            "semantic_score": 0.0447,
+            "confidence": 0.5,
+            "feedback": "Awarded 0 out of 5 marks (0.0%). Semantic similarity: 4%, Confidence: 50%.\n\u2022 Checks the correct document type (0.0/1.0 marks): Criterion 'Checks the correct document type' missing or insufficient in the response.\n\u2022 Emits room_type as key and price as value (0.0/2.0 marks): Criterion 'Emits room_type as key and price as value' missing or insufficient in the response.\n\u2022 Uses sum(values) in reduce (0.0/1.5 marks): Criterion 'Uses sum(values) in reduce' missing or insufficient in the response.\n\u2022 Explains grouping/aggregation (0.0/0.5 marks): Criterion 'Explains grouping/aggregation' missing or insufficient in the response."
+        },
+        {
+            "question": "4",
+            "marks": 0.0,
+            "max_marks": 5.0,
+            "semantic_score": 0.0,
+            "confidence": 0.5,
+            "feedback": "Awarded 0 out of 5 marks (0.0%). Semantic similarity: 0%, Confidence: 50%.\n\u2022 Uses PostgreSQL full-text search functions (0.0/2.0 marks): Criterion 'Uses PostgreSQL full-text search functions' missing or insufficient in the response.\n\u2022 Correctly builds the search query for diabetes (0.0/1.5 marks): Criterion 'Correctly builds the search query for diabetes' missing or insufficient in the response.\n\u2022 Uses @@ matching operator (0.0/1.0 marks): Criterion 'Uses @@ matching operator' missing or insufficient in the response.\n\u2022 Selects relevant fields / valid SQL (0.0/0.5 marks): Criterion 'Selects relevant fields / valid SQL' missing or insufficient in the response."
+        },
+        {
+            "question": "5",
+            "marks": 0.0,
+            "max_marks": 5.0,
+            "semantic_score": 0.0736,
+            "confidence": 0.5,
+            "feedback": "Awarded 0 out of 5 marks (0.0%). Semantic similarity: 7%, Confidence: 50%.\n\u2022 Identifies approximate/fuzzy matching (0.0/1.0 marks): Criterion 'Identifies approximate/fuzzy matching' missing or insufficient in the response.\n\u2022 Mentions pg_trgm or a suitable similarity method (0.0/1.5 marks): Criterion 'Mentions pg_trgm or a suitable similarity method' missing or insufficient in the response.\n\u2022 Provides a plausible query for both names (0.0/2.0 marks): Criterion 'Provides a plausible query for both names' missing or insufficient in the response.\n\u2022 Orders/ranks by similarity or explains threshold (0.0/0.5 marks): Criterion 'Orders/ranks by similarity or explains threshold' missing or insufficient in the response."
+        },
+        {
+            "question": "6",
+            "marks": 0.0,
+            "max_marks": 5.0,
+            "semantic_score": 0.1117,
+            "confidence": 0.5,
+            "feedback": "Awarded 0 out of 5 marks (0.0%). Semantic similarity: 11%, Confidence: 50%.\n\u2022 Appropriate table and columns (0.0/2.0 marks): Criterion 'Appropriate table and columns' missing or insufficient in the response.\n\u2022 Correct data types (0.0/1.5 marks): Criterion 'Correct data types' missing or insufficient in the response.\n\u2022 Primary key / serial identifier (0.0/1.0 marks): Criterion 'Primary key / serial identifier' missing or insufficient in the response.\n\u2022 Timestamp default or equivalent (0.0/0.5 marks): Criterion 'Timestamp default or equivalent' missing or insufficient in the response."
+        },
+        {
+            "question": "7",
+            "marks": 0.5,
+            "max_marks": 5.0,
+            "semantic_score": 0.1561,
+            "confidence": 0.5,
+            "feedback": "Awarded 0.5 out of 5 marks (10.0%). Semantic similarity: 16%, Confidence: 50%.\n\u2022 Defines a valid PL/pgSQL trigger function (0.0/1.5 marks): Criterion 'Defines a valid PL/pgSQL trigger function' missing or insufficient in the response.\n\u2022 Captures OLD and NEW salary values (0.5/1.5 marks): Criterion 'Captures OLD and NEW salary values' partially covered. Lacks full depth.\n\u2022 Inserts correct values into Salary_Log (0.0/1.0 marks): Criterion 'Inserts correct values into Salary_Log' missing or insufficient in the response.\n\u2022 Creates an AFTER UPDATE trigger for each row (0.0/1.0 marks): Criterion 'Creates an AFTER UPDATE trigger for each row' missing or insufficient in the response."
+        },
+        {
+            "question": "8",
+            "marks": 0.0,
+            "max_marks": 5.0,
+            "semantic_score": 0.0,
+            "confidence": 1.0,
+            "feedback": "No answer provided for Question 8. Awarded 0 marks."
+        },
+        {
+            "question": "9",
+            "marks": 0.0,
+            "max_marks": 5.0,
+            "semantic_score": 0.0,
+            "confidence": 1.0,
+            "feedback": "No answer provided for Question 9. Awarded 0 marks."
+        },
+        {
+            "question": "10",
+            "marks": 0.0,
+            "max_marks": 5.0,
+            "semantic_score": 0.0,
+            "confidence": 1.0,
+            "feedback": "No answer provided for Question 10. Awarded 0 marks."
+        }
+    ]
+}

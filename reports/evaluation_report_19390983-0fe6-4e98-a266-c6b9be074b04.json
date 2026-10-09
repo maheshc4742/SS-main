@@ -1,0 +1,92 @@
+{
+    "id": "19390983-0fe6-4e98-a266-c6b9be074b04",
+    "mode": "evaluate",
+    "model": "codbert_ft_v7",
+    "ocr_provider": "qwen",
+    "total_marks": 50.0,
+    "obtained_marks": 7.0,
+    "percentage": 14.0,
+    "overall_summary": "Script evaluated with codbert_ft_v7 (qwen OCR). Overall score: 7/50 (14.0%). Evaluated 10 descriptive question(s).",
+    "questions": [
+        {
+            "question": "Q1",
+            "marks": 5.0,
+            "max_marks": 5.0,
+            "semantic_score": 0.9901,
+            "confidence": 0.99,
+            "feedback": "Awarded 5 out of 5 marks (100.0%). Semantic similarity: 99%, Confidence: 99%.\n\u2022 Correctly identifies the prime factorisation of 24 as 2\u00b3 \u00d7 3 (1.0/1.0 marks): Criterion 'Correctly identifies the prime factorisation of 24 as 2\u00b3 \u00d7 3' thoroughly addressed.\n\u2022 Correctly identifies the prime factorisation of 36 as 2\u00b2 \u00d7 3\u00b2 (1.0/1.0 marks): Criterion 'Correctly identifies the prime factorisation of 36 as 2\u00b2 \u00d7 3\u00b2' thoroughly addressed.\n\u2022 Selects the common prime factors with the smallest powers to calculate HCF (1.0/1.0 marks): Criterion 'Selects the common prime factors with the smallest powers to calculate HCF' thoroughly addressed.\n\u2022 Selects all prime factors with the greatest powers to calculate LCM (1.0/1.0 marks): Criterion 'Selects all prime factors with the greatest powers to calculate LCM' thoroughly addressed.\n\u2022 Obtains the correct results: HCF = 12 and LCM = 72 (1.0/1.0 marks): Criterion 'Obtains the correct results: HCF = 12 and LCM = 72' thoroughly addressed."
+        },
+        {
+            "question": "Q10",
+            "marks": 0.0,
+            "max_marks": 5.0,
+            "semantic_score": 0.0,
+            "confidence": 1.0,
+            "feedback": "No answer provided for Question Q10. Awarded 0 marks."
+        },
+        {
+            "question": "Q2",
+            "marks": 0.0,
+            "max_marks": 5.0,
+            "semantic_score": 0.1262,
+            "confidence": 0.5,
+            "feedback": "Awarded 0 out of 5 marks (0.0%). Semantic similarity: 13%, Confidence: 50%.\n\u2022 Correctly identifies the quadratic polynomial x\u00b2 - 7x + 12 (0.0/0.5 marks): Criterion 'Correctly identifies the quadratic polynomial x\u00b2 - 7x + 12' missing or insufficient in the response.\n\u2022 Factorises the polynomial correctly as (x - 3)(x - 4) (0.0/1.5 marks): Criterion 'Factorises the polynomial correctly as (x - 3)(x - 4)' missing or insufficient in the response.\n\u2022 Identifies both zeros as 3 and 4 (0.0/1.0 marks): Criterion 'Identifies both zeros as 3 and 4' missing or insufficient in the response.\n\u2022 Calculates the sum of zeros as 7 and relates it to -b/a (0.0/1.0 marks): Criterion 'Calculates the sum of zeros as 7 and relates it to -b/a' missing or insufficient in the response.\n\u2022 Calculates the product of zeros as 12 and relates it to c/a, verifying both relationships (0.0/1.0 marks): Criterion 'Calculates the product of zeros as 12 and relates it to c/a, verifying both relationships' missing or insufficient in the response."
+        },
+        {
+            "question": "Q3",
+            "marks": 2.0,
+            "max_marks": 5.0,
+            "semantic_score": 0.4281,
+            "confidence": 0.5997,
+            "feedback": "Awarded 2 out of 5 marks (40.0%). Semantic similarity: 43%, Confidence: 60%.\n\u2022 Writes the equations correctly: 2x + y = 11 and x - y = 1 (0.0/0.5 marks): Criterion 'Writes the equations correctly: 2x + y = 11 and x - y = 1' missing or insufficient in the response.\n\u2022 Adds the equations to eliminate y (0.5/1.0 marks): Criterion 'Adds the equations to eliminate y' partially covered. Lacks full depth.\n\u2022 Obtains 3x = 12 and calculates x = 4 (0.5/1.0 marks): Criterion 'Obtains 3x = 12 and calculates x = 4' partially covered. Lacks full depth.\n\u2022 Substitutes x = 4 into one original equation (0.5/1.0 marks): Criterion 'Substitutes x = 4 into one original equation' partially covered. Lacks full depth.\n\u2022 Calculates y = 3 and states the final solution x = 4, y = 3 (0.5/1.5 marks): Criterion 'Calculates y = 3 and states the final solution x = 4, y = 3' partially covered. Lacks full depth."
+        },
+        {
+            "question": "Q4",
+            "marks": 0.0,
+            "max_marks": 5.0,
+            "semantic_score": 0.1693,
+            "confidence": 0.5,
+            "feedback": "Awarded 0 out of 5 marks (0.0%). Semantic similarity: 17%, Confidence: 50%.\n\u2022 Writes the given equation x\u00b2 - 7x + 12 = 0 correctly (0.0/0.5 marks): Criterion 'Writes the given equation x\u00b2 - 7x + 12 = 0 correctly' missing or insufficient in the response.\n\u2022 Identifies suitable factors of 12 whose sum is 7 (0.0/1.0 marks): Criterion 'Identifies suitable factors of 12 whose sum is 7' missing or insufficient in the response.\n\u2022 Factorises correctly as (x - 3)(x - 4) = 0 (0.0/1.5 marks): Criterion 'Factorises correctly as (x - 3)(x - 4) = 0' missing or insufficient in the response.\n\u2022 Applies the zero-product property to obtain x - 3 = 0 or x - 4 = 0 (0.0/1.0 marks): Criterion 'Applies the zero-product property to obtain x - 3 = 0 or x - 4 = 0' missing or insufficient in the response.\n\u2022 States both correct solutions: x = 3 and x = 4 (0.0/1.0 marks): Criterion 'States both correct solutions: x = 3 and x = 4' missing or insufficient in the response."
+        },
+        {
+            "question": "Q5",
+            "marks": 0.0,
+            "max_marks": 5.0,
+            "semantic_score": 0.1693,
+            "confidence": 0.5,
+            "feedback": "Awarded 0 out of 5 marks (0.0%). Semantic similarity: 17%, Confidence: 50%.\n\u2022 Correctly identifies the first term a = 3, common difference d = 4 and number of terms n = 20 (0.0/0.5 marks): Criterion 'Correctly identifies the first term a = 3, common difference d = 4 and number of terms n = 20' missing or insufficient in the response.\n\u2022 Uses the correct nth-term formula a\u2099 = a + (n - 1)d (0.0/1.0 marks): Criterion 'Uses the correct nth-term formula a\u2099 = a + (n - 1)d' missing or insufficient in the response.\n\u2022 Substitutes the values correctly and obtains the 20th term as 79 (0.0/1.0 marks): Criterion 'Substitutes the values correctly and obtains the 20th term as 79' missing or insufficient in the response.\n\u2022 Uses the correct sum formula S\u2099 = n/2 [2a + (n - 1)d] (0.0/1.0 marks): Criterion 'Uses the correct sum formula S\u2099 = n/2 [2a + (n - 1)d]' missing or insufficient in the response.\n\u2022 Substitutes and simplifies correctly to obtain the sum of the first 20 terms as 820 (0.0/1.5 marks): Criterion 'Substitutes and simplifies correctly to obtain the sum of the first 20 terms as 820' missing or insufficient in the response."
+        },
+        {
+            "question": "Q6",
+            "marks": 0.0,
+            "max_marks": 5.0,
+            "semantic_score": 0.1,
+            "confidence": 0.5,
+            "feedback": "Awarded 0 out of 5 marks (0.0%). Semantic similarity: 10%, Confidence: 50%.\n\u2022 Correctly identifies the coordinates of A(2,3) and B(6,6) (0.0/0.5 marks): Criterion 'Correctly identifies the coordinates of A(2,3) and B(6,6)' missing or insufficient in the response.\n\u2022 Uses the correct distance formula (0.0/1.0 marks): Criterion 'Uses the correct distance formula' missing or insufficient in the response.\n\u2022 Substitutes the coordinates correctly and obtains the distance \u221a25 = 5 (0.0/1.5 marks): Criterion 'Substitutes the coordinates correctly and obtains the distance \u221a25 = 5' missing or insufficient in the response.\n\u2022 Uses the correct midpoint formula (0.0/1.0 marks): Criterion 'Uses the correct midpoint formula' missing or insufficient in the response.\n\u2022 Substitutes correctly and obtains the midpoint (4, 4.5) (0.0/1.0 marks): Criterion 'Substitutes correctly and obtains the midpoint (4, 4.5)' missing or insufficient in the response."
+        },
+        {
+            "question": "Q7",
+            "marks": 0.0,
+            "max_marks": 5.0,
+            "semantic_score": 0.0,
+            "confidence": 1.0,
+            "feedback": "No answer provided for Question Q7. Awarded 0 marks."
+        },
+        {
+            "question": "Q8",
+            "marks": 0.0,
+            "max_marks": 5.0,
+            "semantic_score": 0.0,
+            "confidence": 1.0,
+            "feedback": "No answer provided for Question Q8. Awarded 0 marks."
+        },
+        {
+            "question": "Q9",
+            "marks": 0.0,
+            "max_marks": 5.0,
+            "semantic_score": 0.0,
+            "confidence": 1.0,
+            "feedback": "No answer provided for Question Q9. Awarded 0 marks."
+        }
+    ]
+}

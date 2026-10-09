@@ -1,0 +1,132 @@
+{
+    "id": "16c815c6-31c2-49e2-9af2-ca0f192f4158",
+    "mode": "evaluate",
+    "model": "codbert_base",
+    "ocr_provider": "qwen",
+    "total_marks": 27.0,
+    "obtained_marks": 3.5,
+    "percentage": 12.96,
+    "overall_summary": "Script evaluated with codbert_base (qwen OCR). Overall score: 3.5/27 (12.96%). Evaluated 15 descriptive question(s).",
+    "questions": [
+        {
+            "question": "1",
+            "marks": 1.0,
+            "max_marks": 1.0,
+            "semantic_score": 1.0,
+            "confidence": 0.99,
+            "feedback": "Awarded 1 out of 1 marks (100.0%). Semantic similarity: 100%, Confidence: 99%.\nExcellent answer covering all core points accurately."
+        },
+        {
+            "question": "2",
+            "marks": 0.0,
+            "max_marks": 1.0,
+            "semantic_score": 0.1676,
+            "confidence": 0.5,
+            "feedback": "Awarded 0 out of 1 marks (0.0%). Semantic similarity: 17%, Confidence: 50%.\nAnswer is insufficient or does not match reference concepts."
+        },
+        {
+            "question": "3",
+            "marks": 1.5,
+            "max_marks": 2.0,
+            "semantic_score": 0.4026,
+            "confidence": 0.5,
+            "feedback": "Awarded 1.5 out of 2 marks (75.0%). Semantic similarity: 40%, Confidence: 50%.\nMatched 3 of 4 required listed answer points.\nMissing or unrecognized points: Length of the conductor"
+        },
+        {
+            "question": "4",
+            "marks": 0.0,
+            "max_marks": 3.0,
+            "semantic_score": 0.0,
+            "confidence": 1.0,
+            "feedback": "No answer provided for Question 4. Awarded 0 marks."
+        },
+        {
+            "question": "5",
+            "marks": 1.0,
+            "max_marks": 1.0,
+            "semantic_score": 1.0,
+            "confidence": 0.99,
+            "feedback": "Awarded 1 out of 1 marks (100.0%). Semantic similarity: 100%, Confidence: 99%.\nExcellent answer covering all core points accurately."
+        },
+        {
+            "question": "6",
+            "marks": 0.0,
+            "max_marks": 1.0,
+            "semantic_score": 0.0,
+            "confidence": 1.0,
+            "feedback": "No answer provided for Question 6. Awarded 0 marks."
+        },
+        {
+            "question": "7",
+            "marks": 0.0,
+            "max_marks": 1.0,
+            "semantic_score": 0.0,
+            "confidence": 1.0,
+            "feedback": "No answer provided for Question 7. Awarded 0 marks."
+        },
+        {
+            "question": "8",
+            "marks": 0.0,
+            "max_marks": 1.0,
+            "semantic_score": 0.0,
+            "confidence": 1.0,
+            "feedback": "No answer provided for Question 8. Awarded 0 marks."
+        },
+        {
+            "question": "9",
+            "marks": 0.0,
+            "max_marks": 1.0,
+            "semantic_score": 0.0,
+            "confidence": 1.0,
+            "feedback": "No answer provided for Question 9. Awarded 0 marks."
+        },
+        {
+            "question": "10",
+            "marks": 0.0,
+            "max_marks": 2.0,
+            "semantic_score": 0.0,
+            "confidence": 1.0,
+            "feedback": "No answer provided for Question 10. Awarded 0 marks."
+        },
+        {
+            "question": "12",
+            "marks": 0.0,
+            "max_marks": 2.0,
+            "semantic_score": 0.0,
+            "confidence": 1.0,
+            "feedback": "No answer provided for Question 12. Awarded 0 marks."
+        },
+        {
+            "question": "13",
+            "marks": 0.0,
+            "max_marks": 2.0,
+            "semantic_score": 0.0,
+            "confidence": 1.0,
+            "feedback": "No answer provided for Question 13. Awarded 0 marks."
+        },
+        {
+            "question": "11.a",
+            "marks": 0.0,
+            "max_marks": 2.0,
+            "semantic_score": 0.0,
+            "confidence": 1.0,
+            "feedback": "No answer provided for Question 11.a. Awarded 0 marks."
+        },
+        {
+            "question": "11.b",
+            "marks": 0.0,
+            "max_marks": 2.0,
+            "semantic_score": 0.0,
+            "confidence": 1.0,
+            "feedback": "No answer provided for Question 11.b. Awarded 0 marks."
+        },
+        {
+            "question": "6a",
+            "marks": 0.0,
+            "max_marks": 5.0,
+            "semantic_score": 0.0,
+            "confidence": 0.5,
+            "feedback": "Awarded 0 out of 5 marks (0.0%). Semantic similarity: 0%, Confidence: 50%.\nAnswer is insufficient or does not match reference concepts."
+        }
+    ]
+}

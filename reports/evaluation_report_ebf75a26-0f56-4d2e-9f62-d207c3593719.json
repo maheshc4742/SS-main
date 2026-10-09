@@ -1,0 +1,204 @@
+{
+    "id": "ebf75a26-0f56-4d2e-9f62-d207c3593719",
+    "mode": "evaluate",
+    "model": "codbert_ft_v7",
+    "ocr_provider": "qwen",
+    "total_marks": 73.0,
+    "obtained_marks": 10.5,
+    "percentage": 14.38,
+    "overall_summary": "Script evaluated with codbert_ft_v7 (qwen OCR). Overall score: 10.5/73 (14.38%). Evaluated 24 descriptive question(s).",
+    "questions": [
+        {
+            "question": "1",
+            "marks": 0.0,
+            "max_marks": 1.0,
+            "semantic_score": 0.0,
+            "confidence": 1.0,
+            "feedback": "No answer provided for Question 1. Awarded 0 marks."
+        },
+        {
+            "question": "2",
+            "marks": 0.0,
+            "max_marks": 2.0,
+            "semantic_score": 0.0,
+            "confidence": 1.0,
+            "feedback": "No answer provided for Question 2. Awarded 0 marks."
+        },
+        {
+            "question": "3",
+            "marks": 0.0,
+            "max_marks": 2.0,
+            "semantic_score": 0.0,
+            "confidence": 1.0,
+            "feedback": "No answer provided for Question 3. Awarded 0 marks."
+        },
+        {
+            "question": "4",
+            "marks": 0.0,
+            "max_marks": 3.0,
+            "semantic_score": 0.0,
+            "confidence": 1.0,
+            "feedback": "No answer provided for Question 4. Awarded 0 marks."
+        },
+        {
+            "question": "5",
+            "marks": 0.0,
+            "max_marks": 1.0,
+            "semantic_score": 0.0,
+            "confidence": 1.0,
+            "feedback": "No answer provided for Question 5. Awarded 0 marks."
+        },
+        {
+            "question": "6",
+            "marks": 0.0,
+            "max_marks": 1.0,
+            "semantic_score": 0.0,
+            "confidence": 1.0,
+            "feedback": "No answer provided for Question 6. Awarded 0 marks."
+        },
+        {
+            "question": "7",
+            "marks": 0.0,
+            "max_marks": 1.0,
+            "semantic_score": 0.0,
+            "confidence": 1.0,
+            "feedback": "No answer provided for Question 7. Awarded 0 marks."
+        },
+        {
+            "question": "8",
+            "marks": 0.0,
+            "max_marks": 1.0,
+            "semantic_score": 0.0,
+            "confidence": 1.0,
+            "feedback": "No answer provided for Question 8. Awarded 0 marks."
+        },
+        {
+            "question": "9",
+            "marks": 0.0,
+            "max_marks": 1.0,
+            "semantic_score": 0.0,
+            "confidence": 1.0,
+            "feedback": "No answer provided for Question 9. Awarded 0 marks."
+        },
+        {
+            "question": "10",
+            "marks": 0.0,
+            "max_marks": 2.0,
+            "semantic_score": 0.0,
+            "confidence": 1.0,
+            "feedback": "No answer provided for Question 10. Awarded 0 marks."
+        },
+        {
+            "question": "12",
+            "marks": 1.5,
+            "max_marks": 2.0,
+            "semantic_score": 0.7398,
+            "confidence": 0.8179,
+            "feedback": "Awarded 1.5 out of 2 marks (75.0%). Semantic similarity: 74%, Confidence: 82%.\nGood answer demonstrating sound conceptual understanding with minor omissions."
+        },
+        {
+            "question": "13",
+            "marks": 0.0,
+            "max_marks": 2.0,
+            "semantic_score": 0.1,
+            "confidence": 0.5,
+            "feedback": "Awarded 0 out of 2 marks (0.0%). Semantic similarity: 10%, Confidence: 50%.\nAnswer is insufficient or does not match reference concepts."
+        },
+        {
+            "question": "10a",
+            "marks": 0.5,
+            "max_marks": 5.0,
+            "semantic_score": 0.1,
+            "confidence": 0.5,
+            "feedback": "Awarded 0.5 out of 5 marks (10.0%). Semantic similarity: 10%, Confidence: 50%.\nAnswer is insufficient or does not match reference concepts."
+        },
+        {
+            "question": "11a",
+            "marks": 2.0,
+            "max_marks": 2.0,
+            "semantic_score": 1.0,
+            "confidence": 0.99,
+            "feedback": "Awarded 2 out of 2 marks (100.0%). Semantic similarity: 100%, Confidence: 99%.\nExcellent answer covering all core points accurately."
+        },
+        {
+            "question": "11b",
+            "marks": 2.0,
+            "max_marks": 2.0,
+            "semantic_score": 1.0,
+            "confidence": 0.99,
+            "feedback": "Awarded 2 out of 2 marks (100.0%). Semantic similarity: 100%, Confidence: 99%.\nExcellent answer covering all core points accurately."
+        },
+        {
+            "question": "1a",
+            "marks": 0.5,
+            "max_marks": 5.0,
+            "semantic_score": 0.1,
+            "confidence": 0.5,
+            "feedback": "Awarded 0.5 out of 5 marks (10.0%). Semantic similarity: 10%, Confidence: 50%.\nAnswer is insufficient or does not match reference concepts."
+        },
+        {
+            "question": "2a",
+            "marks": 0.5,
+            "max_marks": 5.0,
+            "semantic_score": 0.1,
+            "confidence": 0.5,
+            "feedback": "Awarded 0.5 out of 5 marks (10.0%). Semantic similarity: 10%, Confidence: 50%.\nAnswer is insufficient or does not match reference concepts."
+        },
+        {
+            "question": "3a",
+            "marks": 0.5,
+            "max_marks": 5.0,
+            "semantic_score": 0.1,
+            "confidence": 0.5,
+            "feedback": "Awarded 0.5 out of 5 marks (10.0%). Semantic similarity: 10%, Confidence: 50%.\nAnswer is insufficient or does not match reference concepts."
+        },
+        {
+            "question": "4a",
+            "marks": 0.5,
+            "max_marks": 5.0,
+            "semantic_score": 0.1,
+            "confidence": 0.5,
+            "feedback": "Awarded 0.5 out of 5 marks (10.0%). Semantic similarity: 10%, Confidence: 50%.\nAnswer is insufficient or does not match reference concepts."
+        },
+        {
+            "question": "5a",
+            "marks": 0.5,
+            "max_marks": 5.0,
+            "semantic_score": 0.1,
+            "confidence": 0.5,
+            "feedback": "Awarded 0.5 out of 5 marks (10.0%). Semantic similarity: 10%, Confidence: 50%.\nAnswer is insufficient or does not match reference concepts."
+        },
+        {
+            "question": "6a",
+            "marks": 0.5,
+            "max_marks": 5.0,
+            "semantic_score": 0.1,
+            "confidence": 0.5,
+            "feedback": "Awarded 0.5 out of 5 marks (10.0%). Semantic similarity: 10%, Confidence: 50%.\nAnswer is insufficient or does not match reference concepts."
+        },
+        {
+            "question": "7a",
+            "marks": 0.5,
+            "max_marks": 5.0,
+            "semantic_score": 0.1,
+            "confidence": 0.5,
+            "feedback": "Awarded 0.5 out of 5 marks (10.0%). Semantic similarity: 10%, Confidence: 50%.\nAnswer is insufficient or does not match reference concepts."
+        },
+        {
+            "question": "8a",
+            "marks": 0.5,
+            "max_marks": 5.0,
+            "semantic_score": 0.1,
+            "confidence": 0.5,
+            "feedback": "Awarded 0.5 out of 5 marks (10.0%). Semantic similarity: 10%, Confidence: 50%.\nAnswer is insufficient or does not match reference concepts."
+        },
+        {
+            "question": "9a",
+            "marks": 0.5,
+            "max_marks": 5.0,
+            "semantic_score": 0.1,
+            "confidence": 0.5,
+            "feedback": "Awarded 0.5 out of 5 marks (10.0%). Semantic similarity: 10%, Confidence: 50%.\nAnswer is insufficient or does not match reference concepts."
+        }
+    ]
+}

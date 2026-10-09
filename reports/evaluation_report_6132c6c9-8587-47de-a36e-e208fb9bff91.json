@@ -1,0 +1,92 @@
+{
+    "id": "6132c6c9-8587-47de-a36e-e208fb9bff91",
+    "mode": "evaluate",
+    "model": "codbert_base",
+    "ocr_provider": "qwen",
+    "total_marks": 50.0,
+    "obtained_marks": 18.0,
+    "percentage": 36.0,
+    "overall_summary": "Script evaluated with codbert_base (qwen OCR). Overall score: 18/50 (36.0%). Evaluated 10 descriptive question(s).",
+    "questions": [
+        {
+            "question": "1",
+            "marks": 2.5,
+            "max_marks": 5.0,
+            "semantic_score": 0.5681,
+            "confidence": 0.5,
+            "feedback": "Awarded 2.5 out of 5 marks (50.0%). Semantic similarity: 57%, Confidence: 50%.\n\u2022 Correctly identifies the prime factorisation of 24 as 2\u00b3 \u00d7 3 (0.5/1.0 marks): Criterion 'Correctly identifies the prime factorisation of 24 as 2\u00b3 \u00d7 3' partially covered. Lacks full depth.\n\u2022 Correctly identifies the prime factorisation of 36 as 2\u00b2 \u00d7 3\u00b2 (0.5/1.0 marks): Criterion 'Correctly identifies the prime factorisation of 36 as 2\u00b2 \u00d7 3\u00b2' partially covered. Lacks full depth.\n\u2022 Selects the common prime factors with the smallest powers to calculate HCF (0.5/1.0 marks): Criterion 'Selects the common prime factors with the smallest powers to calculate HCF' partially covered. Lacks full depth.\n\u2022 Selects all prime factors with the greatest powers to calculate LCM (0.5/1.0 marks): Criterion 'Selects all prime factors with the greatest powers to calculate LCM' partially covered. Lacks full depth.\n\u2022 Obtains the correct results: HCF = 12 and LCM = 72 (0.5/1.0 marks): Criterion 'Obtains the correct results: HCF = 12 and LCM = 72' partially covered. Lacks full depth."
+        },
+        {
+            "question": "2",
+            "marks": 2.0,
+            "max_marks": 5.0,
+            "semantic_score": 0.4356,
+            "confidence": 0.5,
+            "feedback": "Awarded 2 out of 5 marks (40.0%). Semantic similarity: 44%, Confidence: 50%.\n\u2022 Correctly identifies the quadratic polynomial x\u00b2 - 7x + 12 (0.0/0.5 marks): Criterion 'Correctly identifies the quadratic polynomial x\u00b2 - 7x + 12' missing or insufficient in the response.\n\u2022 Factorises the polynomial correctly as (x - 3)(x - 4) (0.5/1.5 marks): Criterion 'Factorises the polynomial correctly as (x - 3)(x - 4)' partially covered. Lacks full depth.\n\u2022 Identifies both zeros as 3 and 4 (0.5/1.0 marks): Criterion 'Identifies both zeros as 3 and 4' partially covered. Lacks full depth.\n\u2022 Calculates the sum of zeros as 7 and relates it to -b/a (0.5/1.0 marks): Criterion 'Calculates the sum of zeros as 7 and relates it to -b/a' partially covered. Lacks full depth.\n\u2022 Calculates the product of zeros as 12 and relates it to c/a, verifying both relationships (0.5/1.0 marks): Criterion 'Calculates the product of zeros as 12 and relates it to c/a, verifying both relationships' partially covered. Lacks full depth."
+        },
+        {
+            "question": "3",
+            "marks": 0.0,
+            "max_marks": 5.0,
+            "semantic_score": 0.0,
+            "confidence": 0.5,
+            "feedback": "Awarded 0 out of 5 marks (0.0%). Semantic similarity: 0%, Confidence: 50%.\n\u2022 Writes the equations correctly: 2x + y = 11 and x - y = 1 (0.0/0.5 marks): Criterion 'Writes the equations correctly: 2x + y = 11 and x - y = 1' missing or insufficient in the response.\n\u2022 Adds the equations to eliminate y (0.0/1.0 marks): Criterion 'Adds the equations to eliminate y' missing or insufficient in the response.\n\u2022 Obtains 3x = 12 and calculates x = 4 (0.0/1.0 marks): Criterion 'Obtains 3x = 12 and calculates x = 4' missing or insufficient in the response.\n\u2022 Substitutes x = 4 into one original equation (0.0/1.0 marks): Criterion 'Substitutes x = 4 into one original equation' missing or insufficient in the response.\n\u2022 Calculates y = 3 and states the final solution x = 4, y = 3 (0.0/1.5 marks): Criterion 'Calculates y = 3 and states the final solution x = 4, y = 3' missing or insufficient in the response."
+        },
+        {
+            "question": "4",
+            "marks": 2.0,
+            "max_marks": 5.0,
+            "semantic_score": 0.392,
+            "confidence": 0.5,
+            "feedback": "Awarded 2 out of 5 marks (40.0%). Semantic similarity: 39%, Confidence: 50%.\n\u2022 Writes the given equation x\u00b2 - 7x + 12 = 0 correctly (0.0/0.5 marks): Criterion 'Writes the given equation x\u00b2 - 7x + 12 = 0 correctly' missing or insufficient in the response.\n\u2022 Identifies suitable factors of 12 whose sum is 7 (0.5/1.0 marks): Criterion 'Identifies suitable factors of 12 whose sum is 7' partially covered. Lacks full depth.\n\u2022 Factorises correctly as (x - 3)(x - 4) = 0 (0.5/1.5 marks): Criterion 'Factorises correctly as (x - 3)(x - 4) = 0' partially covered. Lacks full depth.\n\u2022 Applies the zero-product property to obtain x - 3 = 0 or x - 4 = 0 (0.5/1.0 marks): Criterion 'Applies the zero-product property to obtain x - 3 = 0 or x - 4 = 0' partially covered. Lacks full depth.\n\u2022 States both correct solutions: x = 3 and x = 4 (0.5/1.0 marks): Criterion 'States both correct solutions: x = 3 and x = 4' partially covered. Lacks full depth."
+        },
+        {
+            "question": "5",
+            "marks": 2.0,
+            "max_marks": 5.0,
+            "semantic_score": 0.5969,
+            "confidence": 0.5243,
+            "feedback": "Awarded 2 out of 5 marks (40.0%). Semantic similarity: 60%, Confidence: 52%.\n\u2022 Correctly identifies the first term a = 3, common difference d = 4 and number of terms n = 20 (0.0/0.5 marks): Criterion 'Correctly identifies the first term a = 3, common difference d = 4 and number of terms n = 20' missing or insufficient in the response.\n\u2022 Uses the correct nth-term formula a\u2099 = a + (n - 1)d (0.5/1.0 marks): Criterion 'Uses the correct nth-term formula a\u2099 = a + (n - 1)d' partially covered. Lacks full depth.\n\u2022 Substitutes the values correctly and obtains the 20th term as 79 (0.5/1.0 marks): Criterion 'Substitutes the values correctly and obtains the 20th term as 79' partially covered. Lacks full depth.\n\u2022 Uses the correct sum formula S\u2099 = n/2 [2a + (n - 1)d] (0.5/1.0 marks): Criterion 'Uses the correct sum formula S\u2099 = n/2 [2a + (n - 1)d]' partially covered. Lacks full depth.\n\u2022 Substitutes and simplifies correctly to obtain the sum of the first 20 terms as 820 (0.5/1.5 marks): Criterion 'Substitutes and simplifies correctly to obtain the sum of the first 20 terms as 820' partially covered. Lacks full depth."
+        },
+        {
+            "question": "6",
+            "marks": 2.0,
+            "max_marks": 5.0,
+            "semantic_score": 0.3976,
+            "confidence": 0.5,
+            "feedback": "Awarded 2 out of 5 marks (40.0%). Semantic similarity: 40%, Confidence: 50%.\n\u2022 Correctly identifies the coordinates of A(2,3) and B(6,6) (0.0/0.5 marks): Criterion 'Correctly identifies the coordinates of A(2,3) and B(6,6)' missing or insufficient in the response.\n\u2022 Uses the correct distance formula (0.5/1.0 marks): Criterion 'Uses the correct distance formula' partially covered. Lacks full depth.\n\u2022 Substitutes the coordinates correctly and obtains the distance \u221a25 = 5 (0.5/1.5 marks): Criterion 'Substitutes the coordinates correctly and obtains the distance \u221a25 = 5' partially covered. Lacks full depth.\n\u2022 Uses the correct midpoint formula (0.5/1.0 marks): Criterion 'Uses the correct midpoint formula' partially covered. Lacks full depth.\n\u2022 Substitutes correctly and obtains the midpoint (4, 4.5) (0.5/1.0 marks): Criterion 'Substitutes correctly and obtains the midpoint (4, 4.5)' partially covered. Lacks full depth."
+        },
+        {
+            "question": "7",
+            "marks": 2.5,
+            "max_marks": 5.0,
+            "semantic_score": 0.8928,
+            "confidence": 0.745,
+            "feedback": "Awarded 2.5 out of 5 marks (50.0%). Semantic similarity: 89%, Confidence: 74%.\n\u2022 Correctly states sin 30\u00b0 = 1/2 (0.5/1.0 marks): Criterion 'Correctly states sin 30\u00b0 = 1/2' partially covered. Lacks full depth.\n\u2022 Correctly states cos 60\u00b0 = 1/2 (0.5/1.0 marks): Criterion 'Correctly states cos 60\u00b0 = 1/2' partially covered. Lacks full depth.\n\u2022 Correctly states tan 45\u00b0 = 1 (0.5/1.0 marks): Criterion 'Correctly states tan 45\u00b0 = 1' partially covered. Lacks full depth.\n\u2022 Substitutes the three trigonometric values into the expression correctly (0.5/1.0 marks): Criterion 'Substitutes the three trigonometric values into the expression correctly' partially covered. Lacks full depth.\n\u2022 Adds the values correctly and obtains the final answer 2 (0.5/1.0 marks): Criterion 'Adds the values correctly and obtains the final answer 2' partially covered. Lacks full depth."
+        },
+        {
+            "question": "8",
+            "marks": 2.0,
+            "max_marks": 5.0,
+            "semantic_score": 0.5031,
+            "confidence": 0.5,
+            "feedback": "Awarded 2 out of 5 marks (40.0%). Semantic similarity: 50%, Confidence: 50%.\n\u2022 Identifies the shadow length as 10 m and the angle of elevation as 45\u00b0 (0.5/1.0 marks): Criterion 'Identifies the shadow length as 10 m and the angle of elevation as 45\u00b0' partially covered. Lacks full depth.\n\u2022 Correctly relates the pole, shadow and angle using the tangent ratio (0.5/1.5 marks): Criterion 'Correctly relates the pole, shadow and angle using the tangent ratio' partially covered. Lacks full depth.\n\u2022 Writes tan 45\u00b0 = h/10 (0.5/1.0 marks): Criterion 'Writes tan 45\u00b0 = h/10' partially covered. Lacks full depth.\n\u2022 Uses tan 45\u00b0 = 1 to calculate h = 10 (0.5/1.0 marks): Criterion 'Uses tan 45\u00b0 = 1 to calculate h = 10' partially covered. Lacks full depth.\n\u2022 States the final height with the correct unit, 10 m (0.0/0.5 marks): Criterion 'States the final height with the correct unit, 10 m' missing or insufficient in the response."
+        },
+        {
+            "question": "9",
+            "marks": 0.0,
+            "max_marks": 5.0,
+            "semantic_score": 0.201,
+            "confidence": 0.5,
+            "feedback": "Awarded 0 out of 5 marks (0.0%). Semantic similarity: 20%, Confidence: 50%.\n\u2022 Correctly identifies the values x and their corresponding frequencies f (0.0/0.5 marks): Criterion 'Correctly identifies the values x and their corresponding frequencies f' missing or insufficient in the response.\n\u2022 Calculates the products fx correctly for all observations (0.0/1.5 marks): Criterion 'Calculates the products fx correctly for all observations' missing or insufficient in the response.\n\u2022 Calculates the total frequency \u03a3f = 10 (0.0/1.0 marks): Criterion 'Calculates the total frequency \u03a3f = 10' missing or insufficient in the response.\n\u2022 Calculates the sum of products \u03a3fx = 240 (0.0/1.0 marks): Criterion 'Calculates the sum of products \u03a3fx = 240' missing or insufficient in the response.\n\u2022 Applies the direct-method formula mean = \u03a3fx/\u03a3f and obtains 24 (0.0/1.0 marks): Criterion 'Applies the direct-method formula mean = \u03a3fx/\u03a3f and obtains 24' missing or insufficient in the response."
+        },
+        {
+            "question": "10",
+            "marks": 3.0,
+            "max_marks": 5.0,
+            "semantic_score": 0.7612,
+            "confidence": 0.6283,
+            "feedback": "Awarded 3 out of 5 marks (60.0%). Semantic similarity: 76%, Confidence: 63%.\n\u2022 Calculates the total number of balls as 5 + 3 + 2 = 10 (0.5/0.5 marks): Criterion 'Calculates the total number of balls as 5 + 3 + 2 = 10' thoroughly addressed.\n\u2022 Calculates the probability of drawing a red ball as 5/10 = 1/2 (0.5/1.0 marks): Criterion 'Calculates the probability of drawing a red ball as 5/10 = 1/2' partially covered. Lacks full depth.\n\u2022 Calculates the probability of drawing a blue ball as 3/10 (0.5/1.0 marks): Criterion 'Calculates the probability of drawing a blue ball as 3/10' partially covered. Lacks full depth.\n\u2022 Calculates the probability of drawing a green ball as 2/10 = 1/5 (0.5/1.0 marks): Criterion 'Calculates the probability of drawing a green ball as 2/10 = 1/5' partially covered. Lacks full depth.\n\u2022 Calculates the probability of not drawing a red ball as (3 + 2)/10 = 1/2 (1.0/1.5 marks): Criterion 'Calculates the probability of not drawing a red ball as (3 + 2)/10 = 1/2' partially covered. Lacks full depth."
+        }
+    ]
+}

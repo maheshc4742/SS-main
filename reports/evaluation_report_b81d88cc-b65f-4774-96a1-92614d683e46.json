@@ -1,0 +1,68 @@
+{
+    "id": "b81d88cc-b65f-4774-96a1-92614d683e46",
+    "mode": "evaluate",
+    "model": "codbert_base",
+    "ocr_provider": "qwen",
+    "total_marks": 50.0,
+    "obtained_marks": 2.5,
+    "percentage": 5.0,
+    "overall_summary": "Script evaluated with codbert_base (qwen OCR). Overall score: 2.5/50 (5.0%). Evaluated 7 descriptive question(s).",
+    "questions": [
+        {
+            "question": "1a",
+            "marks": 2.0,
+            "max_marks": 5.0,
+            "semantic_score": 0.4386,
+            "confidence": 0.5,
+            "feedback": "Awarded 2 out of 5 marks (40.0%). Semantic similarity: 44%, Confidence: 50%.\nAverage response. Demonstrates basic awareness but lacks key descriptive elements."
+        },
+        {
+            "question": "2a",
+            "marks": 0.0,
+            "max_marks": 5.0,
+            "semantic_score": 0.0,
+            "confidence": 0.5,
+            "feedback": "Awarded 0 out of 5 marks (0.0%). Semantic similarity: 0%, Confidence: 50%.\nAnswer is insufficient or does not match reference concepts."
+        },
+        {
+            "question": "2b",
+            "marks": 0.5,
+            "max_marks": 5.0,
+            "semantic_score": 0.0645,
+            "confidence": 0.5,
+            "feedback": "Awarded 0.5 out of 5 marks (10.0%). Semantic similarity: 6%, Confidence: 50%.\nAnswer is insufficient or does not match reference concepts."
+        },
+        {
+            "question": "2c",
+            "marks": 0.0,
+            "max_marks": 5.0,
+            "semantic_score": 0.0263,
+            "confidence": 0.5,
+            "feedback": "Awarded 0 out of 5 marks (0.0%). Semantic similarity: 3%, Confidence: 50%.\nAnswer is insufficient or does not match reference concepts."
+        },
+        {
+            "question": "3a",
+            "marks": 0.0,
+            "max_marks": 10.0,
+            "semantic_score": 0.0,
+            "confidence": 0.5,
+            "feedback": "Awarded 0 out of 10 marks (0.0%). Semantic similarity: 0%, Confidence: 50%.\nAnswer is insufficient or does not match reference concepts."
+        },
+        {
+            "question": "3b",
+            "marks": 0.0,
+            "max_marks": 10.0,
+            "semantic_score": 0.0,
+            "confidence": 1.0,
+            "feedback": "No answer provided for Question 3b. Awarded 0 marks."
+        },
+        {
+            "question": "3c",
+            "marks": 0.0,
+            "max_marks": 10.0,
+            "semantic_score": 0.0,
+            "confidence": 1.0,
+            "feedback": "No answer provided for Question 3c. Awarded 0 marks."
+        }
+    ]
+}

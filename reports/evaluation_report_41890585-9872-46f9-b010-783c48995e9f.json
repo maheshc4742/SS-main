@@ -1,0 +1,180 @@
+{
+    "id": "41890585-9872-46f9-b010-783c48995e9f",
+    "mode": "evaluate",
+    "model": "codbert_ft_v7",
+    "ocr_provider": "qwen",
+    "total_marks": 105.0,
+    "obtained_marks": 5.0,
+    "percentage": 4.76,
+    "overall_summary": "Script evaluated with codbert_ft_v7 (qwen OCR). Overall score: 5/105 (4.76%). Evaluated 21 descriptive question(s).",
+    "questions": [
+        {
+            "question": "10a",
+            "marks": 0.5,
+            "max_marks": 5.0,
+            "semantic_score": 0.1,
+            "confidence": 0.5,
+            "feedback": "Awarded 0.5 out of 5 marks (10.0%). Semantic similarity: 10%, Confidence: 50%.\nAnswer is insufficient or does not match reference concepts."
+        },
+        {
+            "question": "1a",
+            "marks": 0.5,
+            "max_marks": 5.0,
+            "semantic_score": 0.1,
+            "confidence": 0.5,
+            "feedback": "Awarded 0.5 out of 5 marks (10.0%). Semantic similarity: 10%, Confidence: 50%.\nAnswer is insufficient or does not match reference concepts."
+        },
+        {
+            "question": "1b",
+            "marks": 0.0,
+            "max_marks": 5.0,
+            "semantic_score": 0.0,
+            "confidence": 1.0,
+            "feedback": "No answer provided for Question 1b. Awarded 0 marks."
+        },
+        {
+            "question": "2a",
+            "marks": 0.5,
+            "max_marks": 5.0,
+            "semantic_score": 0.1,
+            "confidence": 0.5,
+            "feedback": "Awarded 0.5 out of 5 marks (10.0%). Semantic similarity: 10%, Confidence: 50%.\nAnswer is insufficient or does not match reference concepts."
+        },
+        {
+            "question": "3a",
+            "marks": 0.5,
+            "max_marks": 5.0,
+            "semantic_score": 0.1,
+            "confidence": 0.5,
+            "feedback": "Awarded 0.5 out of 5 marks (10.0%). Semantic similarity: 10%, Confidence: 50%.\nAnswer is insufficient or does not match reference concepts."
+        },
+        {
+            "question": "4a",
+            "marks": 0.5,
+            "max_marks": 5.0,
+            "semantic_score": 0.1,
+            "confidence": 0.5,
+            "feedback": "Awarded 0.5 out of 5 marks (10.0%). Semantic similarity: 10%, Confidence: 50%.\nAnswer is insufficient or does not match reference concepts."
+        },
+        {
+            "question": "5a",
+            "marks": 0.5,
+            "max_marks": 5.0,
+            "semantic_score": 0.1,
+            "confidence": 0.5,
+            "feedback": "Awarded 0.5 out of 5 marks (10.0%). Semantic similarity: 10%, Confidence: 50%.\nAnswer is insufficient or does not match reference concepts."
+        },
+        {
+            "question": "6a",
+            "marks": 0.5,
+            "max_marks": 5.0,
+            "semantic_score": 0.1,
+            "confidence": 0.5,
+            "feedback": "Awarded 0.5 out of 5 marks (10.0%). Semantic similarity: 10%, Confidence: 50%.\nAnswer is insufficient or does not match reference concepts."
+        },
+        {
+            "question": "7a",
+            "marks": 0.5,
+            "max_marks": 5.0,
+            "semantic_score": 0.1,
+            "confidence": 0.5,
+            "feedback": "Awarded 0.5 out of 5 marks (10.0%). Semantic similarity: 10%, Confidence: 50%.\nAnswer is insufficient or does not match reference concepts."
+        },
+        {
+            "question": "8a",
+            "marks": 0.5,
+            "max_marks": 5.0,
+            "semantic_score": 0.1,
+            "confidence": 0.5,
+            "feedback": "Awarded 0.5 out of 5 marks (10.0%). Semantic similarity: 10%, Confidence: 50%.\nAnswer is insufficient or does not match reference concepts."
+        },
+        {
+            "question": "9a",
+            "marks": 0.5,
+            "max_marks": 5.0,
+            "semantic_score": 0.1,
+            "confidence": 0.5,
+            "feedback": "Awarded 0.5 out of 5 marks (10.0%). Semantic similarity: 10%, Confidence: 50%.\nAnswer is insufficient or does not match reference concepts."
+        },
+        {
+            "question": "Q1",
+            "marks": 0.0,
+            "max_marks": 5.0,
+            "semantic_score": 0.0,
+            "confidence": 1.0,
+            "feedback": "No answer provided for Question Q1. Awarded 0 marks."
+        },
+        {
+            "question": "Q10",
+            "marks": 0.0,
+            "max_marks": 5.0,
+            "semantic_score": 0.0,
+            "confidence": 1.0,
+            "feedback": "No answer provided for Question Q10. Awarded 0 marks."
+        },
+        {
+            "question": "Q2",
+            "marks": 0.0,
+            "max_marks": 5.0,
+            "semantic_score": 0.0,
+            "confidence": 1.0,
+            "feedback": "No answer provided for Question Q2. Awarded 0 marks."
+        },
+        {
+            "question": "Q3",
+            "marks": 0.0,
+            "max_marks": 5.0,
+            "semantic_score": 0.0,
+            "confidence": 1.0,
+            "feedback": "No answer provided for Question Q3. Awarded 0 marks."
+        },
+        {
+            "question": "Q4",
+            "marks": 0.0,
+            "max_marks": 5.0,
+            "semantic_score": 0.0,
+            "confidence": 1.0,
+            "feedback": "No answer provided for Question Q4. Awarded 0 marks."
+        },
+        {
+            "question": "Q5",
+            "marks": 0.0,
+            "max_marks": 5.0,
+            "semantic_score": 0.0,
+            "confidence": 1.0,
+            "feedback": "No answer provided for Question Q5. Awarded 0 marks."
+        },
+        {
+            "question": "Q6",
+            "marks": 0.0,
+            "max_marks": 5.0,
+            "semantic_score": 0.0,
+            "confidence": 1.0,
+            "feedback": "No answer provided for Question Q6. Awarded 0 marks."
+        },
+        {
+            "question": "Q7",
+            "marks": 0.0,
+            "max_marks": 5.0,
+            "semantic_score": 0.0,
+            "confidence": 1.0,
+            "feedback": "No answer provided for Question Q7. Awarded 0 marks."
+        },
+        {
+            "question": "Q8",
+            "marks": 0.0,
+            "max_marks": 5.0,
+            "semantic_score": 0.0,
+            "confidence": 1.0,
+            "feedback": "No answer provided for Question Q8. Awarded 0 marks."
+        },
+        {
+            "question": "Q9",
+            "marks": 0.0,
+            "max_marks": 5.0,
+            "semantic_score": 0.0,
+            "confidence": 1.0,
+            "feedback": "No answer provided for Question Q9. Awarded 0 marks."
+        }
+    ]
+}

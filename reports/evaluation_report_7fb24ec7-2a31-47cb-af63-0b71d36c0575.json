@@ -1,0 +1,172 @@
+{
+    "id": "7fb24ec7-2a31-47cb-af63-0b71d36c0575",
+    "mode": "evaluate",
+    "model": "codbert_base",
+    "ocr_provider": "qwen",
+    "total_marks": 100.0,
+    "obtained_marks": 0.0,
+    "percentage": 0.0,
+    "overall_summary": "Script evaluated with codbert_base (qwen OCR). Overall score: 0/100 (0.0%). Evaluated 20 descriptive question(s).",
+    "questions": [
+        {
+            "question": "1",
+            "marks": 0.0,
+            "max_marks": 5.0,
+            "semantic_score": 0.0,
+            "confidence": 0.5,
+            "feedback": "Awarded 0 out of 5 marks (0.0%). Semantic similarity: 0%, Confidence: 50%.\n\u2022 Identifies CouchDB as a document-oriented NoSQL database accessed through HTTP (0.0/1.0 marks): Criterion 'Identifies CouchDB as a document-oriented NoSQL database accessed through HTTP' missing or insufficient in the response.\n\u2022 Explains create and read operations with appropriate HTTP methods (0.0/1.0 marks): Criterion 'Explains create and read operations with appropriate HTTP methods' missing or insufficient in the response.\n\u2022 Explains update operation using the document ID and current revision (_rev) (0.0/1.0 marks): Criterion 'Explains update operation using the document ID and current revision (_rev)' missing or insufficient in the response.\n\u2022 Explains delete operation using the document ID and current revision (0.0/1.0 marks): Criterion 'Explains delete operation using the document ID and current revision' missing or insufficient in the response.\n\u2022 Provides appropriate cURL command examples or clearly explains the CRUD sequence (0.0/1.0 marks): Criterion 'Provides appropriate cURL command examples or clearly explains the CRUD sequence' missing or insufficient in the response."
+        },
+        {
+            "question": "2",
+            "marks": 0.0,
+            "max_marks": 5.0,
+            "semantic_score": 0.0,
+            "confidence": 0.5,
+            "feedback": "Awarded 0 out of 5 marks (0.0%). Semantic similarity: 0%, Confidence: 50%.\n\u2022 Selects the required order details, including order ID, customer ID, date and amount (0.0/1.0 marks): Criterion 'Selects the required order details, including order ID, customer ID, date and amount' missing or insufficient in the response.\n\u2022 Uses SUM(amount) as a window aggregate (0.0/1.0 marks): Criterion 'Uses SUM(amount) as a window aggregate' missing or insufficient in the response.\n\u2022 Uses the OVER clause with correct ordering by order date (0.0/1.0 marks): Criterion 'Uses the OVER clause with correct ordering by order date' missing or insufficient in the response.\n\u2022 Uses PARTITION BY customer_id to calculate a separate running total for each customer (0.0/1.0 marks): Criterion 'Uses PARTITION BY customer_id to calculate a separate running total for each customer' missing or insufficient in the response.\n\u2022 Provides valid SQL syntax and an appropriate final ORDER BY clause (0.0/1.0 marks): Criterion 'Provides valid SQL syntax and an appropriate final ORDER BY clause' missing or insufficient in the response."
+        },
+        {
+            "question": "3",
+            "marks": 0.0,
+            "max_marks": 5.0,
+            "semantic_score": 0.0,
+            "confidence": 0.5,
+            "feedback": "Awarded 0 out of 5 marks (0.0%). Semantic similarity: 0%, Confidence: 50%.\n\u2022 Checks that the document type is room (0.0/1.0 marks): Criterion 'Checks that the document type is room' missing or insufficient in the response.\n\u2022 Validates the room_type and numeric price fields (0.0/1.0 marks): Criterion 'Validates the room_type and numeric price fields' missing or insufficient in the response.\n\u2022 Uses emit(doc.room_type, doc.price) to group prices by room type (0.0/1.5 marks): Criterion 'Uses emit(doc.room_type, doc.price) to group prices by room type' missing or insufficient in the response.\n\u2022 Implements the reduce function to sum the emitted prices (0.0/1.0 marks): Criterion 'Implements the reduce function to sum the emitted prices' missing or insufficient in the response.\n\u2022 Explains how MapReduce calculates the total price for each room type (0.0/0.5 marks): Criterion 'Explains how MapReduce calculates the total price for each room type' missing or insufficient in the response."
+        },
+        {
+            "question": "4",
+            "marks": 0.0,
+            "max_marks": 5.0,
+            "semantic_score": 0.0,
+            "confidence": 0.5,
+            "feedback": "Awarded 0 out of 5 marks (0.0%). Semantic similarity: 0%, Confidence: 50%.\n\u2022 Selects relevant patient details, including patient ID, name and diagnosis notes (0.0/1.0 marks): Criterion 'Selects relevant patient details, including patient ID, name and diagnosis notes' missing or insufficient in the response.\n\u2022 Uses to_tsvector with the English text configuration (0.0/1.5 marks): Criterion 'Uses to_tsvector with the English text configuration' missing or insufficient in the response.\n\u2022 Uses plainto_tsquery to search for the word diabetes (0.0/1.5 marks): Criterion 'Uses plainto_tsquery to search for the word diabetes' missing or insufficient in the response.\n\u2022 Uses the @@ operator to match the text vector with the search query (0.0/1.0 marks): Criterion 'Uses the @@ operator to match the text vector with the search query' missing or insufficient in the response."
+        },
+        {
+            "question": "5",
+            "marks": 0.0,
+            "max_marks": 5.0,
+            "semantic_score": 0.0,
+            "confidence": 0.5,
+            "feedback": "Awarded 0 out of 5 marks (0.0%). Semantic similarity: 0%, Confidence: 50%.\n\u2022 Identifies approximate or fuzzy text matching as the required approach (0.0/1.0 marks): Criterion 'Identifies approximate or fuzzy text matching as the required approach' missing or insufficient in the response.\n\u2022 Enables or mentions the PostgreSQL pg_trgm extension (0.0/1.0 marks): Criterion 'Enables or mentions the PostgreSQL pg_trgm extension' missing or insufficient in the response.\n\u2022 Uses the similarity function or % operator appropriately (0.0/1.0 marks): Criterion 'Uses the similarity function or % operator appropriately' missing or insufficient in the response.\n\u2022 Constructs a query that checks both Ananya and Riya (0.0/1.0 marks): Criterion 'Constructs a query that checks both Ananya and Riya' missing or insufficient in the response.\n\u2022 Orders results by similarity or otherwise explains how the closest matches are identified (0.0/1.0 marks): Criterion 'Orders results by similarity or otherwise explains how the closest matches are identified' missing or insufficient in the response."
+        },
+        {
+            "question": "6",
+            "marks": 0.0,
+            "max_marks": 5.0,
+            "semantic_score": 0.0,
+            "confidence": 0.5,
+            "feedback": "Awarded 0 out of 5 marks (0.0%). Semantic similarity: 0%, Confidence: 50%.\n\u2022 Creates a table named Salary_Log (0.0/0.5 marks): Criterion 'Creates a table named Salary_Log' missing or insufficient in the response.\n\u2022 Defines a log_id column with SERIAL or an equivalent generated identifier (0.0/1.0 marks): Criterion 'Defines a log_id column with SERIAL or an equivalent generated identifier' missing or insufficient in the response.\n\u2022 Defines emp_id with an appropriate integer data type and NOT NULL constraint (0.0/1.0 marks): Criterion 'Defines emp_id with an appropriate integer data type and NOT NULL constraint' missing or insufficient in the response.\n\u2022 Includes old_salary and new_salary columns with suitable numeric data types (0.0/1.5 marks): Criterion 'Includes old_salary and new_salary columns with suitable numeric data types' missing or insufficient in the response.\n\u2022 Includes updated_at with a timestamp data type and a suitable default value (0.0/1.0 marks): Criterion 'Includes updated_at with a timestamp data type and a suitable default value' missing or insufficient in the response."
+        },
+        {
+            "question": "7",
+            "marks": 0.0,
+            "max_marks": 5.0,
+            "semantic_score": 0.0,
+            "confidence": 0.5,
+            "feedback": "Awarded 0 out of 5 marks (0.0%). Semantic similarity: 0%, Confidence: 50%.\n\u2022 Defines a valid PostgreSQL trigger function returning TRIGGER (0.0/1.0 marks): Criterion 'Defines a valid PostgreSQL trigger function returning TRIGGER' missing or insufficient in the response.\n\u2022 Uses OLD.salary and NEW.salary to identify the previous and updated salary (0.0/1.0 marks): Criterion 'Uses OLD.salary and NEW.salary to identify the previous and updated salary' missing or insufficient in the response.\n\u2022 Inserts the employee ID, old salary, new salary and timestamp into Salary_Log (0.0/1.5 marks): Criterion 'Inserts the employee ID, old salary, new salary and timestamp into Salary_Log' missing or insufficient in the response.\n\u2022 Checks whether the salary has actually changed, where applicable (0.0/0.5 marks): Criterion 'Checks whether the salary has actually changed, where applicable' missing or insufficient in the response.\n\u2022 Creates an AFTER UPDATE trigger for each affected employee row (0.0/1.0 marks): Criterion 'Creates an AFTER UPDATE trigger for each affected employee row' missing or insufficient in the response."
+        },
+        {
+            "question": "8",
+            "marks": 0.0,
+            "max_marks": 5.0,
+            "semantic_score": 0.0,
+            "confidence": 0.5,
+            "feedback": "Awarded 0 out of 5 marks (0.0%). Semantic similarity: 0%, Confidence: 50%.\n\u2022 Filters valid music documents and checks the genre and rating fields (0.0/1.0 marks): Criterion 'Filters valid music documents and checks the genre and rating fields' missing or insufficient in the response.\n\u2022 Emits genre as the key and rating as the value (0.0/1.0 marks): Criterion 'Emits genre as the key and rating as the value' missing or insufficient in the response.\n\u2022 Identifies an appropriate reduce or aggregation method, such as _stats (0.0/1.5 marks): Criterion 'Identifies an appropriate reduce or aggregation method, such as _stats' missing or insufficient in the response.\n\u2022 Explains that the average rating is calculated as total rating divided by count (0.0/1.0 marks): Criterion 'Explains that the average rating is calculated as total rating divided by count' missing or insufficient in the response.\n\u2022 Explains how grouping by genre produces a separate average for each genre (0.0/0.5 marks): Criterion 'Explains how grouping by genre produces a separate average for each genre' missing or insufficient in the response."
+        },
+        {
+            "question": "9",
+            "marks": 0.0,
+            "max_marks": 5.0,
+            "semantic_score": 0.0,
+            "confidence": 0.5,
+            "feedback": "Awarded 0 out of 5 marks (0.0%). Semantic similarity: 0%, Confidence: 50%.\n\u2022 Explains PostgreSQL's relational model, tables and SQL querying (0.0/1.25 marks): Criterion 'Explains PostgreSQL's relational model, tables and SQL querying' missing or insufficient in the response.\n\u2022 Explains PostgreSQL features such as joins, constraints or transactions (0.0/0.75 marks): Criterion 'Explains PostgreSQL features such as joins, constraints or transactions' missing or insufficient in the response.\n\u2022 Explains CouchDB's JSON document model and HTTP/REST interface (0.0/1.25 marks): Criterion 'Explains CouchDB's JSON document model and HTTP/REST interface' missing or insufficient in the response.\n\u2022 Explains CouchDB views, MapReduce or replication (0.0/0.75 marks): Criterion 'Explains CouchDB views, MapReduce or replication' missing or insufficient in the response.\n\u2022 Compares suitable use cases for both databases accurately (0.0/1.0 marks): Criterion 'Compares suitable use cases for both databases accurately' missing or insufficient in the response."
+        },
+        {
+            "question": "10",
+            "marks": 0.0,
+            "max_marks": 5.0,
+            "semantic_score": 0.0,
+            "confidence": 0.5,
+            "feedback": "Awarded 0 out of 5 marks (0.0%). Semantic similarity: 0%, Confidence: 50%.\n\u2022 Provides a valid example of inserting an employee with an initial salary (0.0/1.0 marks): Criterion 'Provides a valid example of inserting an employee with an initial salary' missing or insufficient in the response.\n\u2022 Updates the employee's salary using a valid SQL UPDATE statement (0.0/1.0 marks): Criterion 'Updates the employee's salary using a valid SQL UPDATE statement' missing or insufficient in the response.\n\u2022 Queries Salary_Log using the appropriate employee ID (0.0/1.0 marks): Criterion 'Queries Salary_Log using the appropriate employee ID' missing or insufficient in the response.\n\u2022 Explains that the audit record should contain the old salary and new salary (0.0/1.0 marks): Criterion 'Explains that the audit record should contain the old salary and new salary' missing or insufficient in the response.\n\u2022 Identifies the update timestamp and explains how it verifies the audit entry (0.0/1.0 marks): Criterion 'Identifies the update timestamp and explains how it verifies the audit entry' missing or insufficient in the response."
+        },
+        {
+            "question": "Q1",
+            "marks": 0.0,
+            "max_marks": 5.0,
+            "semantic_score": 0.0,
+            "confidence": 1.0,
+            "feedback": "No answer provided for Question Q1. Awarded 0 marks."
+        },
+        {
+            "question": "Q10",
+            "marks": 0.0,
+            "max_marks": 5.0,
+            "semantic_score": 0.0,
+            "confidence": 1.0,
+            "feedback": "No answer provided for Question Q10. Awarded 0 marks."
+        },
+        {
+            "question": "Q2",
+            "marks": 0.0,
+            "max_marks": 5.0,
+            "semantic_score": 0.0,
+            "confidence": 1.0,
+            "feedback": "No answer provided for Question Q2. Awarded 0 marks."
+        },
+        {
+            "question": "Q3",
+            "marks": 0.0,
+            "max_marks": 5.0,
+            "semantic_score": 0.0,
+            "confidence": 1.0,
+            "feedback": "No answer provided for Question Q3. Awarded 0 marks."
+        },
+        {
+            "question": "Q4",
+            "marks": 0.0,
+            "max_marks": 5.0,
+            "semantic_score": 0.0,
+            "confidence": 1.0,
+            "feedback": "No answer provided for Question Q4. Awarded 0 marks."
+        },
+        {
+            "question": "Q5",
+            "marks": 0.0,
+            "max_marks": 5.0,
+            "semantic_score": 0.0,
+            "confidence": 1.0,
+            "feedback": "No answer provided for Question Q5. Awarded 0 marks."
+        },
+        {
+            "question": "Q6",
+            "marks": 0.0,
+            "max_marks": 5.0,
+            "semantic_score": 0.0,
+            "confidence": 1.0,
+            "feedback": "No answer provided for Question Q6. Awarded 0 marks."
+        },
+        {
+            "question": "Q7",
+            "marks": 0.0,
+            "max_marks": 5.0,
+            "semantic_score": 0.0,
+            "confidence": 1.0,
+            "feedback": "No answer provided for Question Q7. Awarded 0 marks."
+        },
+        {
+            "question": "Q8",
+            "marks": 0.0,
+            "max_marks": 5.0,
+            "semantic_score": 0.0,
+            "confidence": 1.0,
+            "feedback": "No answer provided for Question Q8. Awarded 0 marks."
+        },
+        {
+            "question": "Q9",
+            "marks": 0.0,
+            "max_marks": 5.0,
+            "semantic_score": 0.0,
+            "confidence": 1.0,
+            "feedback": "No answer provided for Question Q9. Awarded 0 marks."
+        }
+    ]
+}

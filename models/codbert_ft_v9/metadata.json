@@ -1,0 +1,8 @@
+{
+    "model_version": "codbert_ft_v9",
+    "training_samples": 45,
+    "validation_score": 0.5927,
+    "mae": 0.4073,
+    "created_at": "2026-10-09T08:33:12.141869+00:00",
+    "base_model": "codbert_base"
+}
