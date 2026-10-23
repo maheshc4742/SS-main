@@ -1,0 +1,92 @@
+{
+    "id": "e8d6d5bb-db0a-4cd9-a6ff-bf4a36f1b24e",
+    "mode": "evaluate",
+    "model": "codbert_base",
+    "ocr_provider": "gemini",
+    "total_marks": 15.0,
+    "obtained_marks": 10.5,
+    "percentage": 70.0,
+    "overall_summary": "Script evaluated with codbert_base (gemini OCR). Overall score: 10.5/15 (70.0%). Evaluated 10 descriptive question(s).",
+    "questions": [
+        {
+            "question": "1",
+            "marks": 1.0,
+            "max_marks": 1.0,
+            "semantic_score": 1.0,
+            "confidence": 0.99,
+            "feedback": "Awarded 1 out of 1 marks (100.0%). Semantic similarity: 100%, Confidence: 99%.\nExcellent answer covering all core points accurately."
+        },
+        {
+            "question": "2",
+            "marks": 1.0,
+            "max_marks": 2.0,
+            "semantic_score": 0.3772,
+            "confidence": 0.5,
+            "feedback": "Awarded 1 out of 2 marks (50.0%). Semantic similarity: 38%, Confidence: 50%.\nAverage response. Demonstrates basic awareness but lacks key descriptive elements."
+        },
+        {
+            "question": "3",
+            "marks": 1.0,
+            "max_marks": 2.0,
+            "semantic_score": 0.4664,
+            "confidence": 0.6265,
+            "feedback": "Awarded 1 out of 2 marks (50.0%). Semantic similarity: 47%, Confidence: 63%.\nAverage response. Demonstrates basic awareness but lacks key descriptive elements."
+        },
+        {
+            "question": "4",
+            "marks": 3.0,
+            "max_marks": 3.0,
+            "semantic_score": 0.5031,
+            "confidence": 0.5122,
+            "feedback": "Awarded 3 out of 3 marks (100.0%). Semantic similarity: 50%, Confidence: 51%.\nLargest (1/1 marks): Correct largest value(s).\nSmallest (1/1 marks): Correct smallest value(s).\nSum And Average (1/1 marks): Correct sum and average value(s)."
+        },
+        {
+            "question": "5",
+            "marks": 1.0,
+            "max_marks": 1.0,
+            "semantic_score": 1.0,
+            "confidence": 0.99,
+            "feedback": "Awarded 1 out of 1 marks (100.0%). Semantic similarity: 100%, Confidence: 99%.\nExcellent answer covering all core points accurately."
+        },
+        {
+            "question": "6",
+            "marks": 1.0,
+            "max_marks": 1.0,
+            "semantic_score": 1.0,
+            "confidence": 0.99,
+            "feedback": "Awarded 1 out of 1 marks (100.0%). Semantic similarity: 100%, Confidence: 99%.\nExcellent answer covering all core points accurately."
+        },
+        {
+            "question": "7",
+            "marks": 0.5,
+            "max_marks": 1.0,
+            "semantic_score": 0.6404,
+            "confidence": 0.7483,
+            "feedback": "Awarded 0.5 out of 1 marks (50.0%). Semantic similarity: 64%, Confidence: 75%.\nAverage response. Demonstrates basic awareness but lacks key descriptive elements."
+        },
+        {
+            "question": "8",
+            "marks": 0.5,
+            "max_marks": 1.0,
+            "semantic_score": 0.4125,
+            "confidence": 0.5,
+            "feedback": "Awarded 0.5 out of 1 marks (50.0%). Semantic similarity: 41%, Confidence: 50%.\nAverage response. Demonstrates basic awareness but lacks key descriptive elements."
+        },
+        {
+            "question": "9",
+            "marks": 1.0,
+            "max_marks": 1.0,
+            "semantic_score": 1.0,
+            "confidence": 0.99,
+            "feedback": "Awarded 1 out of 1 marks (100.0%). Semantic similarity: 100%, Confidence: 99%.\nExcellent answer covering all core points accurately."
+        },
+        {
+            "question": "10",
+            "marks": 0.5,
+            "max_marks": 2.0,
+            "semantic_score": 0.3339,
+            "confidence": 0.5,
+            "feedback": "Awarded 0.5 out of 2 marks (25.0%). Semantic similarity: 33%, Confidence: 50%.\nAnswer is insufficient or does not match reference concepts."
+        }
+    ]
+}

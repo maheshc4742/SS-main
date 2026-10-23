@@ -133,6 +133,23 @@ class HITLService:
         return item
 
     @staticmethod
+    def reject_all_pending(db: Session) -> int:
+        rejected_count = (
+            db.query(HITLItem)
+            .filter(HITLItem.status == "pending")
+            .update(
+                {
+                    HITLItem.status: "rejected",
+                    HITLItem.human_verified: False,
+                    HITLItem.human_feedback: "REJECTED: Rejected with bulk action",
+                },
+                synchronize_session=False,
+            )
+        )
+        db.commit()
+        return rejected_count
+
+    @staticmethod
     def update_draft(
         item_id: int,
         human_marks: Optional[float],

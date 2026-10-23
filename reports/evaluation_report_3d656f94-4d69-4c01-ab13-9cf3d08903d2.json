@@ -1,0 +1,188 @@
+{
+    "id": "3d656f94-4d69-4c01-ab13-9cf3d08903d2",
+    "mode": "evaluate",
+    "model": "codbert_ft_v12",
+    "ocr_provider": "qwen",
+    "total_marks": 15.0,
+    "obtained_marks": 6.0,
+    "percentage": 40.0,
+    "overall_summary": "Script evaluated with codbert_ft_v12 (qwen OCR). Overall score: 6/15 (40.0%). Evaluated 22 descriptive question(s).",
+    "questions": [
+        {
+            "question": "1",
+            "marks": 0.0,
+            "max_marks": 1.0,
+            "semantic_score": 0.0,
+            "confidence": 1.0,
+            "feedback": "No answer provided for Question 1. Awarded 0 marks."
+        },
+        {
+            "question": "2",
+            "marks": 1.0,
+            "max_marks": 2.0,
+            "semantic_score": 0.5486,
+            "confidence": 0.684,
+            "feedback": "Awarded 1 out of 2 marks (50.0%). Semantic similarity: 55%, Confidence: 68%.\nAverage response. Demonstrates basic awareness but lacks key descriptive elements."
+        },
+        {
+            "question": "3",
+            "marks": 1.0,
+            "max_marks": 2.0,
+            "semantic_score": 0.4903,
+            "confidence": 0.6432,
+            "feedback": "Awarded 1 out of 2 marks (50.0%). Semantic similarity: 49%, Confidence: 64%.\nAverage response. Demonstrates basic awareness but lacks key descriptive elements."
+        },
+        {
+            "question": "4",
+            "marks": 0.0,
+            "max_marks": 3.0,
+            "semantic_score": 0.0,
+            "confidence": 1.0,
+            "feedback": "No answer provided for Question 4. Awarded 0 marks."
+        },
+        {
+            "question": "5",
+            "marks": 1.0,
+            "max_marks": 1.0,
+            "semantic_score": 1.0,
+            "confidence": 0.99,
+            "feedback": "Awarded 1 out of 1 marks (100.0%). Semantic similarity: 100%, Confidence: 99%.\nExcellent answer covering all core points accurately."
+        },
+        {
+            "question": "6",
+            "marks": 1.0,
+            "max_marks": 1.0,
+            "semantic_score": 1.0,
+            "confidence": 0.99,
+            "feedback": "Awarded 1 out of 1 marks (100.0%). Semantic similarity: 100%, Confidence: 99%.\nExcellent answer covering all core points accurately."
+        },
+        {
+            "question": "7",
+            "marks": 0.5,
+            "max_marks": 1.0,
+            "semantic_score": 0.6929,
+            "confidence": 0.7389,
+            "feedback": "Awarded 0.5 out of 1 marks (50.0%). Semantic similarity: 69%, Confidence: 74%.\nAverage response. Demonstrates basic awareness but lacks key descriptive elements."
+        },
+        {
+            "question": "8",
+            "marks": 0.5,
+            "max_marks": 1.0,
+            "semantic_score": 0.6359,
+            "confidence": 0.7451,
+            "feedback": "Awarded 0.5 out of 1 marks (50.0%). Semantic similarity: 64%, Confidence: 75%.\nAverage response. Demonstrates basic awareness but lacks key descriptive elements."
+        },
+        {
+            "question": "9",
+            "marks": 1.0,
+            "max_marks": 1.0,
+            "semantic_score": 1.0,
+            "confidence": 0.99,
+            "feedback": "Awarded 1 out of 1 marks (100.0%). Semantic similarity: 100%, Confidence: 99%.\nExcellent answer covering all core points accurately."
+        },
+        {
+            "question": "10",
+            "marks": 0.0,
+            "max_marks": 2.0,
+            "semantic_score": 0.0,
+            "confidence": 1.0,
+            "feedback": "No answer provided for Question 10. Awarded 0 marks."
+        },
+        {
+            "question": "12",
+            "marks": 0.0,
+            "max_marks": 0.0,
+            "semantic_score": 0.0,
+            "confidence": 0.0,
+            "feedback": "Extra answer for Question 12 is not present in the answer key or rubric. Awarded 0 marks."
+        },
+        {
+            "question": "10a",
+            "marks": 0.0,
+            "max_marks": 0.0,
+            "semantic_score": 0.0,
+            "confidence": 0.0,
+            "feedback": "Extra answer for Question 10a is not present in the answer key or rubric. Awarded 0 marks."
+        },
+        {
+            "question": "10b",
+            "marks": 0.0,
+            "max_marks": 0.0,
+            "semantic_score": 0.0,
+            "confidence": 0.0,
+            "feedback": "Extra answer for Question 10b is not present in the answer key or rubric. Awarded 0 marks."
+        },
+        {
+            "question": "10c",
+            "marks": 0.0,
+            "max_marks": 0.0,
+            "semantic_score": 0.0,
+            "confidence": 0.0,
+            "feedback": "Extra answer for Question 10c is not present in the answer key or rubric. Awarded 0 marks."
+        },
+        {
+            "question": "10d",
+            "marks": 0.0,
+            "max_marks": 0.0,
+            "semantic_score": 0.0,
+            "confidence": 0.0,
+            "feedback": "Extra answer for Question 10d is not present in the answer key or rubric. Awarded 0 marks."
+        },
+        {
+            "question": "11a",
+            "marks": 0.0,
+            "max_marks": 0.0,
+            "semantic_score": 0.0,
+            "confidence": 0.0,
+            "feedback": "Extra answer for Question 11a is not present in the answer key or rubric. Awarded 0 marks."
+        },
+        {
+            "question": "11b",
+            "marks": 0.0,
+            "max_marks": 0.0,
+            "semantic_score": 0.0,
+            "confidence": 0.0,
+            "feedback": "Extra answer for Question 11b is not present in the answer key or rubric. Awarded 0 marks."
+        },
+        {
+            "question": "1a",
+            "marks": 0.0,
+            "max_marks": 0.0,
+            "semantic_score": 0.0,
+            "confidence": 0.0,
+            "feedback": "Extra answer for Question 1a is not present in the answer key or rubric. Awarded 0 marks."
+        },
+        {
+            "question": "4a",
+            "marks": 0.0,
+            "max_marks": 0.0,
+            "semantic_score": 0.0,
+            "confidence": 0.0,
+            "feedback": "Extra answer for Question 4a is not present in the answer key or rubric. Awarded 0 marks."
+        },
+        {
+            "question": "4b",
+            "marks": 0.0,
+            "max_marks": 0.0,
+            "semantic_score": 0.0,
+            "confidence": 0.0,
+            "feedback": "Extra answer for Question 4b is not present in the answer key or rubric. Awarded 0 marks."
+        },
+        {
+            "question": "4c",
+            "marks": 0.0,
+            "max_marks": 0.0,
+            "semantic_score": 0.0,
+            "confidence": 0.0,
+            "feedback": "Extra answer for Question 4c is not present in the answer key or rubric. Awarded 0 marks."
+        },
+        {
+            "question": "4d",
+            "marks": 0.0,
+            "max_marks": 0.0,
+            "semantic_score": 0.0,
+            "confidence": 0.0,
+            "feedback": "Extra answer for Question 4d is not present in the answer key or rubric. Awarded 0 marks."
+        }
+    ]
+}

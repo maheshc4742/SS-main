@@ -60,21 +60,82 @@ class GeminiOCR(BaseOCR):
         if questions_hint:
             hint_text = f"The exam contains the following question identifiers: {', '.join(questions_hint)}. Ensure you extract each available answer corresponding to these numbers."
 
-        prompt = (
-            "You are an expert OCR transcription engine for handwritten exam solutions.\n"
-            "Examine every attached image and page, and transcribe each student answer in full, from its first "
-            "word or step through its final word or step. Do not summarize, paraphrase, correct, or omit any "
-            "readable content, including explanations, working steps, equations, examples, and conclusions. "
-            "Preserve the student's wording and original question and subquestion identifiers (for example, "
-            "1a or 1.a); keep paragraph and line breaks where practical. If a word is genuinely unreadable, "
-            "mark it as [illegible] rather than guessing. Do not stop after the first part of a long answer.\n"
+        prompt= (
+            "You are a high-accuracy OCR system for handwritten student examination answer sheets. "
+            "Read every uploaded image and every page carefully, in normal reading order, and transcribe "
+            "the student's handwritten answers exactly as written. This is transcription only, not "
+            "answering, grading, correcting, or generating missing content.\n"
+
             f"{hint_text}\n"
-            "Structure the output strictly as a JSON object where each key is a question or subquestion "
-            "identifier (e.g. \"1\", \"1a\", \"1.b\") and each value is the complete transcribed answer.\n"
-            "Example format:\n"
-            '{\n  "1a": "The complete transcription of every readable step in the answer...",\n'
-            '  "1b": "The complete transcription of the next answer..."\n}\n'
-            "Respond ONLY with the JSON object. Do NOT enclose in markdown code blocks."
+
+            "First identify each handwritten question number and subquestion label, then extract the answer "
+            "written under or beside it. Preserve the original question numbering and order. Include every "
+            "answer, even if it consists of a single word, short phrase, incomplete sentence, code snippet, "
+            "bullet point, calculation, or rough work. Never omit an answer because it appears incorrect, "
+            "incomplete, or unrelated to the expected answer.\n"
+
+            "Transcribe only the student's answers, not printed questions, marks, page numbers, or unrelated "
+            "background text. Preserve original wording, spelling, capitalization, punctuation, numbers, "
+            "symbols, and answer order. Do not summarize, paraphrase, correct, solve, or complete anything. "
+            "If a word or character is unreadable, use [illegible] only for that portion. Do not guess.\n"
+
+            "QUESTION IDENTIFICATION:\n"
+            "Preserve question and subquestion identifiers as handwritten, including labels such as "
+            "'1', '2', '11a', '11b', '11(a)', and '11(b)'. Do not force identifiers into a predefined "
+            "sequence or change them to match expected-identifier hints. Keep each subquestion as a separate "
+            "JSON entry. Never overwrite one answer with another. If an answer continues across lines or "
+            "pages, combine it with the original answer when the continuation is clear. Do not invent "
+            "question identifiers. If an answer is visible but its question number cannot be determined, "
+            "use 'unknown_1', 'unknown_2', and so on.\n"
+
+            "PROGRAMMING CODE:\n"
+            "Transcribe code exactly as written, including keywords, variable names, capitalization, "
+            "operators, brackets, punctuation, and indentation. Preserve the student's code even if it "
+            "contains syntax errors. Do not execute, debug, or correct it.\n"
+
+            "MATHEMATICS AND SCIENCE:\n"
+            "Transcribe all mathematical expressions, scientific formulas, equations, and calculations "
+            "faithfully. Use LaTeX notation for mathematical expressions when appropriate. Preserve "
+            "fractions, exponents, subscripts, roots, matrices, operators, chemical formulas, units, "
+            "reaction arrows, and intermediate calculations. Do not solve, simplify, balance, or correct "
+            "expressions. If a symbol is genuinely unclear, use [unclear symbol]. Ensure LaTeX backslashes "
+            "are escaped correctly in the JSON output.\n"
+
+            "DIAGRAMS AND GRAPHS:\n"
+            "Describe each visible student-drawn diagram, graph, circuit, flowchart, or scientific "
+            "illustration within the corresponding answer string using the format '[Diagram: description]'. "
+            "Include readable labels, arrows, directions, components, connections, measurements, axis labels, "
+            "and important relationships. Preserve labels exactly as written. Do not invent labels or "
+            "describe features that cannot be reliably observed.\n"
+
+            "BULLET POINTS AND MULTILINE ANSWERS:\n"
+            "Preserve all bullet points, numbered steps, and lines of the answer in their original order. "
+            "Represent line breaks using newline characters inside the JSON strings. Keep all content "
+            "belonging to the same question together in one string. Preserve readable tables using text "
+            "or Markdown table syntax inside the answer string.\n"
+
+            "OUTPUT FORMAT:\n"
+            "Return exactly one valid JSON object mapping each question identifier to its complete "
+            "transcribed answer as a string. Use unique string keys and string values only. Do not use "
+            "nested objects, arrays, confidence scores, marks, or extra fields.\n"
+
+            "Example structure only:\n"
+            '{"1":"Python",'
+            '"2":"A variable is like a containers used to store data in a program.",'
+            '"11a":"Select name from student where marks > 80",'
+            '"11b":"for i in range (5):\\n    Print (i)",'
+            '"12":"Binary Search is a searching technique.\\nTime complexity\\nO (log n)"}\n'
+
+            "The example illustrates the output structure only. Never copy example content into the "
+            "actual output unless it is present in the uploaded image.\n"
+
+            "Before responding, verify that every page, question, short answer, code snippet, calculation, "
+            "diagram, and readable label has been considered. Ensure that no answer has been omitted, "
+            "corrected, generated, or assigned to the wrong question. Escape double quotes, backslashes, "
+            "and newlines correctly so the result can be parsed by a standard JSON parser. If no student "
+            "answers are visible, return {}.\n"
+
+            "Return JSON only, without Markdown code fences or explanations."
         )
 
         url = "https://generativelanguage.googleapis.com/v1beta/interactions"

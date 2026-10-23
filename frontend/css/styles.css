@@ -757,6 +757,52 @@ textarea.json-editor:focus {
   transition: width 0.4s ease;
 }
 
+.training-target-controls {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.65rem 1rem;
+  margin-top: 0.9rem;
+  font-size: 0.8rem;
+}
+
+.training-target-controls > label {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  color: var(--text-muted);
+  cursor: pointer;
+}
+
+.training-target-controls input[type="radio"] {
+  accent-color: var(--accent-emerald);
+}
+
+#new-model-name-container {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+#new-model-name-container[hidden] {
+  display: none;
+}
+
+#new-model-name {
+  width: 190px;
+  padding: 0.4rem 0.55rem;
+  background: #070a12;
+  border: 1px solid var(--border-glass);
+  border-radius: var(--radius-sm);
+  color: #fff;
+}
+
+#new-model-name-container > span,
+#training-target-notice {
+  color: var(--text-dim);
+  font-size: 0.72rem;
+}
+
 .btn-finetune {
   background: linear-gradient(135deg, var(--accent-emerald), #059669);
   color: #fff;

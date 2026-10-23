@@ -105,6 +105,99 @@ def _component_is_present(item: str, student_answer: str) -> bool:
     return False
 
 
+def _numeric_role(label: str) -> Optional[str]:
+    normalized = label.lower()
+    if re.search(r"\b(largest|maximum|max)\b", normalized):
+        return "largest"
+    if re.search(r"\b(smallest|minimum|min)\b", normalized):
+        return "smallest"
+    if re.search(r"\b(sum|total)\b", normalized):
+        return "sum"
+    if re.search(r"\b(average|avg|mean)\b", normalized):
+        return "average"
+    return None
+
+
+def _grade_explicit_numeric_rubric(
+    student_answer: str,
+    criteria: Any,
+    max_marks: float,
+) -> Optional[tuple[float, List[Dict[str, Any]], List[str]]]:
+    if not isinstance(criteria, str):
+        return None
+
+    award_pattern = re.compile(
+        r"(?P<marks>\d+(?:\.\d+)?)\s+marks?\s+for\s+(?:the\s+)?correct\s+"
+        r"(?P<items>.*?)(?=(?:,\s*(?:and\s+)?\d+(?:\.\d+)?\s+marks?\s+"
+        r"for\s+(?:the\s+)?correct\b)|(?:\.\s|$))",
+        flags=re.IGNORECASE,
+    )
+    value_pattern = re.compile(
+        r"(?P<label>[a-z][a-z ]*?)\s*\(\s*(?P<value>[-+]?\d+(?:\.\d+)?)\s*\)",
+        flags=re.IGNORECASE,
+    )
+    student_value_pattern = re.compile(
+        r"\b(?P<label>largest(?:\s+(?:number|value))?|maximum|max|"
+        r"smallest(?:\s+(?:number|value))?|minimum|min|sum|total|"
+        r"average|avg|mean)\b"
+        r"[^0-9+\-]{0,20}(?P<value>[-+]?\d+(?:,\d{3})*(?:\.\d+)?)",
+        flags=re.IGNORECASE,
+    )
+
+    awards = []
+    for match in award_pattern.finditer(criteria):
+        expected_values = []
+        for value_match in value_pattern.finditer(match.group("items")):
+            role = _numeric_role(value_match.group("label"))
+            if role is None:
+                return None
+            expected_values.append((role, float(value_match.group("value"))))
+        if not expected_values:
+            return None
+        awards.append((float(match.group("marks")), expected_values))
+
+    if not awards:
+        return None
+
+    student_values = {}
+    for match in student_value_pattern.finditer(student_answer):
+        role = _numeric_role(match.group("label"))
+        if role is not None:
+            student_values[role] = float(match.group("value").replace(",", ""))
+
+    breakdown = []
+    feedback_lines = []
+    total_awarded = 0.0
+    for award_marks, expected_values in awards:
+        is_correct = all(
+            role in student_values
+            and abs(student_values[role] - expected_value) <= 1e-9
+            for role, expected_value in expected_values
+        )
+        awarded = award_marks if is_correct else 0.0
+        total_awarded += awarded
+        labels = " and ".join(role for role, _ in expected_values)
+        status = "Fully Met" if is_correct else "Not Met"
+        notes = (
+            f"Correct {labels} value(s)."
+            if is_correct
+            else f"Expected {', '.join(f'{role} = {value:g}' for role, value in expected_values)}."
+        )
+        breakdown.append({
+            "criterion": labels.title(),
+            "max_marks": award_marks,
+            "awarded_marks": awarded,
+            "status": status,
+            "notes": notes,
+        })
+        feedback_lines.append(
+            f"{labels.title()} ({awarded:g}/{award_marks:g} marks): {notes}"
+        )
+
+    final_marks = quantize_half_or_whole(total_awarded, max_marks)
+    return final_marks, breakdown, feedback_lines
+
+
 def _grade_numbered_rubric(
     student_answer: str,
     reference_answer: str,
@@ -227,13 +320,21 @@ class GradingModule:
                 for c in criteria_evals
             ]
         else:
-            component_result = _grade_numbered_rubric(
+            numeric_result = _grade_explicit_numeric_rubric(
                 student_answer,
-                reference_answer,
                 criteria_list,
                 max_marks,
             )
-            if component_result is not None:
+            if numeric_result is not None:
+                final_marks, criteria_breakdown, feedback_lines = numeric_result
+            else:
+                component_result = _grade_numbered_rubric(
+                    student_answer,
+                    reference_answer,
+                    criteria_list,
+                    max_marks,
+                )
+            if numeric_result is None and component_result is not None:
                 final_marks, matched_count, required_count, missing_items = component_result
                 feedback_lines.append(
                     f"Matched {min(matched_count, required_count)} of {required_count} required listed answer points."
@@ -249,7 +350,7 @@ class GradingModule:
                     ),
                     "notes": feedback_lines[0],
                 }]
-            else:
+            elif numeric_result is None:
                 # Direct semantic-based rubric grading
                 raw_marks = max_marks * semantic_score
                 final_marks = quantize_half_or_whole(raw_marks, max_marks)

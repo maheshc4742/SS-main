@@ -79,7 +79,13 @@ const elements = {
   trainingProgressText: document.getElementById('training-progress-text'),
   lblTrainReadiness: document.getElementById('lbl-train-readiness'),
   btnStartFinetune: document.getElementById('btn-start-finetune'),
+  trainingTargetUpdate: document.getElementById('training-target-update'),
+  trainingTargetNew: document.getElementById('training-target-new'),
+  newModelNameContainer: document.getElementById('new-model-name-container'),
+  newModelName: document.getElementById('new-model-name'),
+  trainingTargetNotice: document.getElementById('training-target-notice'),
   btnRefreshPending: document.getElementById('btn-refresh-pending'),
+  btnRejectAllPending: document.getElementById('btn-reject-all-pending'),
   lblPendingBadge: document.getElementById('lbl-pending-badge'),
   hitlEmptyState: document.getElementById('hitl-empty-state'),
   hitlItemsContainer: document.getElementById('hitl-items-container'),
@@ -193,6 +199,7 @@ function updateConfigUI() {
     elements.ocrDot.className = 'status-dot dot-green';
     elements.ocrChoiceQwen.checked = true;
   }
+  updateTrainingTargetUI();
 }
 
 async function loadTrainingStats() {
@@ -218,16 +225,37 @@ function updateTrainingStatsUI() {
   if (is_ready) {
     elements.lblTrainReadiness.textContent = 'Ready for Fine-Tuning';
     elements.lblTrainReadiness.className = 'status-tag fully-met';
-    elements.btnStartFinetune.disabled = false;
     elements.trainingDot.className = 'status-dot dot-green';
   } else {
     elements.lblTrainReadiness.textContent = 'Collecting Annotations';
     elements.lblTrainReadiness.className = 'status-tag partially-met';
-    elements.btnStartFinetune.disabled = true;
     elements.trainingDot.className = 'status-dot dot-amber';
   }
 
   elements.lblPendingBadge.textContent = `${pending_count} Pending`;
+  updateTrainingTargetUI();
+}
+
+function updateTrainingTargetUI() {
+  const activeModel = state.config?.active_semantic_model || 'codbert_base';
+  const canUpdateActive = activeModel !== 'codbert_base';
+  elements.trainingTargetUpdate.disabled = !canUpdateActive;
+  elements.trainingTargetUpdate.parentElement.title = canUpdateActive
+    ? `Update ${activeModel}`
+    : 'Activate a fine-tuned model first; codbert_base is protected.';
+  if (!canUpdateActive && elements.trainingTargetUpdate.checked) {
+    elements.trainingTargetNew.checked = true;
+  }
+
+  const creatingNew = elements.trainingTargetNew.checked;
+  elements.newModelNameContainer.hidden = !creatingNew;
+  elements.trainingTargetNotice.textContent = canUpdateActive
+    ? `Active fine-tuned model: ${activeModel}`
+    : 'codbert_base cannot be overwritten. Create a named model or activate a fine-tuned checkpoint.';
+
+  const validName = /^[A-Za-z0-9][A-Za-z0-9_-]{0,49}$/.test(elements.newModelName.value.trim());
+  const targetIsValid = creatingNew ? validName : canUpdateActive;
+  elements.btnStartFinetune.disabled = !state.trainingStats.is_ready || !targetIsValid;
 }
 
 // ==========================================
@@ -466,17 +494,22 @@ function formatMarks(val) {
 async function loadPendingHitlItems() {
   try {
     const res = await fetch('/api/hitl/pending');
-    if (res.ok) {
-      const items = await res.json();
-      renderHitlPendingQueue(items);
+    if (!res.ok) {
+      const err = await res.json();
+      throw new Error(err.detail || 'Failed to load pending review items');
     }
+
+    const items = await res.json();
+    renderHitlPendingQueue(items);
   } catch (err) {
     console.error('Failed to load pending HITL items:', err);
+    showToast(err.message, 'error');
   }
 }
 
 function renderHitlPendingQueue(items) {
   elements.lblPendingBadge.textContent = `${items.length} Pending`;
+  elements.btnRejectAllPending.disabled = items.length === 0;
   elements.hitlItemsContainer.innerHTML = '';
 
   if (!items || items.length === 0) {
@@ -570,6 +603,29 @@ function renderHitlPendingQueue(items) {
   });
 }
 
+async function rejectAllPendingItems() {
+  if (!confirm('Reject all pending review items? They will not be added to training data.')) {
+    return;
+  }
+
+  elements.btnRejectAllPending.disabled = true;
+  try {
+    const res = await fetch('/api/hitl/reject-all', { method: 'POST' });
+    if (!res.ok) {
+      const err = await res.json();
+      throw new Error(err.detail || 'Failed to reject pending items');
+    }
+
+    const result = await res.json();
+    await loadTrainingStats();
+    showToast(`Rejected ${result.rejected_count} pending item(s).`, 'info');
+    await loadPendingHitlItems();
+  } catch (err) {
+    showToast(err.message, 'error');
+    await loadPendingHitlItems();
+  }
+}
+
 // Stepper function exposed to window
 window.stepMarks = function(itemId, delta, maxMarks) {
   const input = document.getElementById(`human-marks-${itemId}`);
@@ -661,6 +717,10 @@ window.rejectItem = async function(itemId) {
 
 // Fine-Tuning Execution
 async function startFineTuning() {
+  const creatingNew = elements.trainingTargetNew.checked;
+  const requestBody = creatingNew
+    ? { strategy: 'create_new', model_name: elements.newModelName.value.trim() }
+    : { strategy: 'update_active' };
   elements.btnStartFinetune.disabled = true;
   elements.btnStartFinetune.innerHTML = `
     <span style="display:inline-block; animation:spin 1s linear infinite;">⚙️</span>
@@ -668,7 +728,11 @@ async function startFineTuning() {
   `;
 
   try {
-    const res = await fetch('/api/training/start?force=true', { method: 'POST' });
+    const res = await fetch('/api/training/start?force=true', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(requestBody)
+    });
     if (!res.ok) {
       const err = await res.json();
       throw new Error(err.detail || 'Fine-tuning failed');
@@ -685,11 +749,11 @@ async function startFineTuning() {
   } catch (err) {
     showToast(err.message, 'error');
   } finally {
-    elements.btnStartFinetune.disabled = false;
     elements.btnStartFinetune.innerHTML = `
       <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="23 4 23 10 17 10"/><path d="M20.49 15a9 9 0 1 1-2.12-9.36L23 10"/></svg>
       <span>Start Fine-Tuning</span>
     `;
+    updateTrainingTargetUI();
   }
 }
 
@@ -872,7 +936,11 @@ function setupEventListeners() {
 
   // HITL Studio Buttons
   elements.btnRefreshPending.addEventListener('click', loadPendingHitlItems);
+  elements.btnRejectAllPending.addEventListener('click', rejectAllPendingItems);
   elements.btnStartFinetune.addEventListener('click', startFineTuning);
+  elements.trainingTargetUpdate.addEventListener('change', updateTrainingTargetUI);
+  elements.trainingTargetNew.addEventListener('change', updateTrainingTargetUI);
+  elements.newModelName.addEventListener('input', updateTrainingTargetUI);
 
   // Settings Modal
   elements.pillOcr.addEventListener('click', openSettingsModal);

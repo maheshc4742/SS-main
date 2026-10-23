@@ -1,4 +1,5 @@
-from typing import Optional, List, Dict, Any, Union
+import re
+from typing import Optional, List, Dict, Any, Union, Literal
 from pydantic import BaseModel, Field, field_validator
 
 class CriterionItem(BaseModel):
@@ -98,6 +99,28 @@ class TrainingStatsResponse(BaseModel):
     pending_count: int
     is_ready: bool
     active_model: str
+
+class TrainingStartRequest(BaseModel):
+    strategy: Literal["update_active", "create_new"]
+    model_name: Optional[str] = None
+
+    @field_validator("model_name")
+    @classmethod
+    def validate_model_name(cls, value: Optional[str]) -> Optional[str]:
+        if value is None:
+            return value
+        value = value.strip()
+        if not value or len(value) > 50 or not value[0].isalnum():
+            raise ValueError("Model name must start with a letter or number and be 1-50 characters.")
+        if not re.fullmatch(r"[A-Za-z0-9][A-Za-z0-9_-]{0,49}", value):
+            raise ValueError("Model name may contain only letters, numbers, underscores, and hyphens.")
+        if value == "codbert_base":
+            raise ValueError("'codbert_base' is reserved and cannot be used as a fine-tuned model name.")
+        windows_reserved_names = {"CON", "PRN", "AUX", "NUL"}
+        windows_reserved_names.update(f"{prefix}{number}" for prefix in ("COM", "LPT") for number in range(1, 10))
+        if value.upper() in windows_reserved_names:
+            raise ValueError("Model name cannot be a reserved Windows device name.")
+        return value
 
 class ModelItem(BaseModel):
     model_version: str

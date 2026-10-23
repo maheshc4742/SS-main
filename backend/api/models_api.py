@@ -44,9 +44,9 @@ def list_available_models(db: Session = Depends(get_db)):
         is_active=is_base_active
     ))
 
-    # 2. Check directories in models/
+    # 2. Check fine-tuned checkpoints in models/
     for sub in sorted(MODELS_DIR.iterdir()):
-        if sub.is_dir() and sub.name.startswith("codbert_ft_v"):
+        if sub.is_dir() and sub.name != "codbert_base":
             meta_file = sub / "metadata.json"
             if meta_file.exists():
                 try:

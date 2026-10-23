@@ -208,6 +208,22 @@ def reject_hitl_item(req: HITLRejectRequest, db: Session = Depends(get_db)):
         raise HTTPException(status_code=400, detail=str(e))
 
 
+@router.post("/hitl/reject-all")
+def reject_all_pending_hitl_items(db: Session = Depends(get_db)):
+    """Rejects every currently pending item without adding any to training data."""
+    try:
+        rejected_count = hitl_service.reject_all_pending(db)
+        return {
+            "success": True,
+            "rejected_count": rejected_count,
+            "message": f"Rejected {rejected_count} pending item(s).",
+        }
+    except Exception as e:
+        db.rollback()
+        logger.exception("Failed to reject all pending HITL items")
+        raise HTTPException(status_code=500, detail="Failed to reject all pending items.") from e
+
+
 @router.put("/hitl/{id}")
 def update_hitl_item(id: int, req: HITLUpdateRequest, db: Session = Depends(get_db)):
     """Updates draft human marks or feedback before approval."""

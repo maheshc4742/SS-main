@@ -26,12 +26,15 @@ ScriptSense is a production-ready, modular web application for automated evaluat
 
 ### 3. Rubric-Based Grading with 0.5 Quantization
 * Evaluates descriptive answers using weighted sub-criteria or prose rubrics aligned with numbered answer-key points.
+* Explicit numeric rubric checkpoints (for example, marks for the correct largest value, smallest value, sum, or average) are checked individually against the student's stated values. A wrong checkpoint does not receive credit just because the rest of the answer is semantically similar.
+* Semantic alignment and model confidence remain useful evaluation signals. When a rubric does not provide explicit, machine-readable checkpoints, semantic alignment is used for the direct rubric score.
 * **Fraction Rule**: Strictly keeps marks as **whole numbers or half-integers (`.5`)** (e.g., 0, 0.5, 1.0, 1.5 ... up to max marks).
 
-### 4. Versioned Model Fine-Tuning Pipeline
+### 4. Flexible Model Fine-Tuning Pipeline
 * Separates verified data into **Train (70%)**, **Validation (15%)**, and **Test (15%)** splits.
-* Automatically versions fine-tuned models (`models/codbert_ft_v1/`, `codbert_ft_v2/`, etc.) with `weights.json` and `metadata.json`.
+* Lets users update the active fine-tuned checkpoint in place or create a new checkpoint with a user-defined name. The base `codbert_base` checkpoint is protected from in-place training.
 * Instant runtime activation of any trained model checkpoint via the UI or API.
+* Model test-set evaluation uses the same rubric grading logic as live evaluation. Keep verified human marks consistent with the rubric: inconsistent labels can reduce fine-tuning and test metrics even when explicit rubric checkpoints produce deterministic marks.
 
 ---
 
@@ -169,7 +172,7 @@ Report Saved    ↓
                 ↓
               Fine-Tuning Trigger (Train/Val/Test split)
                 ↓
-              Versioned Model (models/codbert_ft_v{N}/)
+              Fine-Tuned Model (named checkpoint under models/)
                 ↓
               Active Model Deployed
 ```

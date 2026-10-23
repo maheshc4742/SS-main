@@ -56,29 +56,96 @@ class QwenOCR(BaseOCR):
 
         hint_text = ""
         if questions_hint:
-            hint_text = f"The questions to extract are: {', '.join(questions_hint)}."
+            hint_text = (
+                f"Expected question identifiers include: {', '.join(questions_hint)}. "
+                "These are hints, not a limit: also transcribe any other clearly labeled "
+                "question or subquestion found on the pages.\n"
+            )
 
-        prompt_text = (
-            "You are a careful OCR transcription assistant specializing in handwritten exam solutions.\n"
-            "Examine every attached image and page of the student's answer sheet.\n"
+
+        prompt = (
+            "You are a high-accuracy OCR system for handwritten student examination answer sheets. "
+            "Read every uploaded image and every page carefully, in normal reading order, and transcribe "
+            "the student's handwritten answers exactly as written. This is transcription only, not "
+            "answering, grading, correcting, or generating missing content.\n"
+
             f"{hint_text}\n"
-            "Transcribe each answer in full, from its first word or step through its final word or step. "
-            "Do not summarize, paraphrase, correct, or omit any readable content, including explanations, "
-            "working steps, equations, examples, and conclusions. Preserve the student's wording and the "
-            "original question and subquestion identifiers (for example, 1a or 1.a). Keep paragraph and "
-            "line breaks where practical. If a word is genuinely unreadable, mark it as [illegible] rather "
-            "than guessing. Do not stop after the first part of a long answer.\n"
-            "Organize the complete transcriptions strictly as a JSON object mapping each question or "
-            "subquestion identifier to its full answer text.\n"
-            "Example format:\n"
-            '{\n  "1": "complete transcription of every readable step in the answer...",\n'
-            '  "2": "complete transcription of the next answer..."\n}\n'
-            "Output ONLY the JSON object. Do not include markdown or explanations."
+
+            "First identify each handwritten question number and subquestion label, then extract the answer "
+            "written under or beside it. Preserve the original question numbering and order. Include all "
+            "detected labels. Include brief answers and fragments too, even if an answer consists of a "
+            "single word, short phrase, incomplete sentence, code snippet, "
+            "bullet point, calculation, or rough work. Never omit an answer because it appears incorrect, "
+            "incomplete, or unrelated to the expected answer.\n"
+
+            "Transcribe only the student's answers, not printed questions, marks, page numbers, or unrelated "
+            "background text. Preserve original wording, spelling, capitalization, punctuation, numbers, "
+            "symbols, and answer order. Do not summarize, paraphrase, correct, solve, or complete anything. "
+            "If a word or character is unreadable, use [illegible] only for that portion. Do not guess.\n"
+
+            "QUESTION IDENTIFICATION:\n"
+            "Preserve question and subquestion identifiers as handwritten, including labels such as "
+            "'1', '2', '11a', '11b', '11(a)', and '11(b)'. Do not force identifiers into a predefined "
+            "sequence or change them to match expected-identifier hints. Keep each subquestion as a separate "
+            "JSON entry. Never overwrite one answer with another. If an answer continues across lines or "
+            "pages, combine it with the original answer when the continuation is clear. Do not invent "
+            "question identifiers. If an answer is visible but its question number cannot be determined, "
+            "use 'unknown_1', 'unknown_2', and so on.\n"
+
+            "PROGRAMMING CODE:\n"
+            "Transcribe code exactly as written, including keywords, variable names, capitalization, "
+            "operators, brackets, punctuation, and indentation. Preserve the student's code even if it "
+            "contains syntax errors. Do not execute, debug, or correct it.\n"
+
+            "MATHEMATICS AND SCIENCE:\n"
+            "Transcribe all mathematical expressions, scientific formulas, equations, and calculations "
+            "faithfully. Use LaTeX notation for mathematical expressions when appropriate. Preserve "
+            "fractions, exponents, subscripts, roots, matrices, operators, chemical formulas, units, "
+            "reaction arrows, and intermediate calculations. Do not solve, simplify, balance, or correct "
+            "expressions. If a symbol is genuinely unclear, use [unclear symbol]. Ensure LaTeX backslashes "
+            "are escaped correctly in the JSON output.\n"
+
+            "DIAGRAMS AND GRAPHS:\n"
+            "Describe each visible student-drawn diagram, graph, circuit, flowchart, or scientific "
+            "illustration within the corresponding answer string using the format '[Diagram: description]'. "
+            "Include readable labels, arrows, directions, components, connections, measurements, axis labels, "
+            "and important relationships. Preserve labels exactly as written. Do not invent labels or "
+            "describe features that cannot be reliably observed.\n"
+
+            "BULLET POINTS AND MULTILINE ANSWERS:\n"
+            "Preserve all bullet points, numbered steps, and lines of the answer in their original order. "
+            "Represent line breaks using newline characters inside the JSON strings. Keep all content "
+            "belonging to the same question together in one string. Preserve readable tables using text "
+            "or Markdown table syntax inside the answer string.\n"
+
+            "OUTPUT FORMAT:\n"
+            "Return exactly one valid JSON object mapping each question identifier to its complete "
+            "transcribed answer as a string. Use unique string keys and string values only. Do not use "
+            "nested objects, arrays, confidence scores, marks, or extra fields.\n"
+
+            "Example structure only:\n"
+            '{"1":"Python",'
+            '"2":"A variable is like a containers used to store data in a program.",'
+            '"11a":"Select name from student where marks > 80",'
+            '"11b":"for i in range (5):\\n    Print (i)",'
+            '"12":"Binary Search is a searching technique.\\nTime complexity\\nO (log n)"}\n'
+
+            "The example illustrates the output structure only. Never copy example content into the "
+            "actual output unless it is present in the uploaded image.\n"
+
+            "Before responding, verify that every page, question, short answer, code snippet, calculation, "
+            "diagram, and readable label has been considered. Ensure that no answer has been omitted, "
+            "corrected, generated, or assigned to the wrong question. Escape double quotes, backslashes, "
+            "and newlines correctly so the result can be parsed by a standard JSON parser. If no student "
+            "answers are visible, return {}.\n"
+
+            "Return JSON only, without Markdown code fences or explanations."
         )
 
-        content = [{"type": "text", "text": prompt_text}] + image_content_parts
+
+        content = [{"type": "text", "text": prompt}] + image_content_parts
         messages = [
-            {"role": "system", "content": "You are a precise handwritten OCR transcription system. Transcribe complete answers without summarizing or omitting readable content, and respond solely with valid JSON."},
+            {"role": "system", "content": "Transcribe all visible student answers faithfully, including brief answers and unexpected question labels. Do not answer or grade. Return only valid JSON."},
             {"role": "user", "content": content}
         ]
 

@@ -5,7 +5,7 @@ from typing import Dict, Any, Optional
 
 from backend.core.config import DATA_DIR, MODELS_DIR
 from backend.services.semantic_module import CodeBERTSemanticModel
-from backend.services.grading_module import quantize_half_or_whole
+from backend.services.grading_module import grading_module
 
 logger = logging.getLogger(__name__)
 
@@ -42,8 +42,14 @@ def evaluate_model_on_test_set(
         human_marks = float(item.get("human_marks", max_m))
 
         sem_res = model.evaluate(s_ans, r_ans, rub)
-        pred_raw = max_m * sem_res.similarity_score
-        pred_marks = quantize_half_or_whole(pred_raw, max_m)
+        grade_res = grading_module.grade(
+            student_answer=s_ans,
+            reference_answer=r_ans,
+            rubric=rub,
+            semantic_score=sem_res.similarity_score,
+            confidence=sem_res.confidence,
+        )
+        pred_marks = grade_res.marks
 
         err = abs(pred_marks - human_marks)
         errors.append(err)

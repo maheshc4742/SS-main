@@ -86,14 +86,33 @@ class ScriptSenseEvaluator:
             q_text = str(question_id)
             return (0, int(q_text)) if q_text.isdigit() else (1, q_text)
 
+        expected_q_keys = set(normalized_key_answers.keys()) | set(normalized_rubrics.keys())
         all_q_keys = sorted(
-            set(normalized_key_answers.keys()) | set(extracted_answers.keys()),
+            expected_q_keys | set(extracted_answers.keys()),
             key=sort_question_key
         )
 
         for q_id in all_q_keys:
             s_answer = extracted_answers.get(q_id, "").strip()
             r_answer = str(normalized_key_answers.get(q_id, "")).strip()
+            if q_id not in expected_q_keys:
+                question_results.append({
+                    "question": q_id,
+                    "marks": 0.0,
+                    "max_marks": 0.0,
+                    "semantic_score": 0.0,
+                    "confidence": 0.0,
+                    "feedback": (
+                        f"Extra answer for Question {q_id} is not present in the answer key "
+                        "or rubric. Awarded 0 marks."
+                    ),
+                    "criteria_breakdown": [],
+                    "student_answer": s_answer,
+                    "reference_answer": "",
+                    "hitl_item_id": None
+                })
+                continue
+
             rubric = normalized_rubrics.get(q_id, {"max_marks": 5.0, "criteria": []})
             max_marks = float(rubric.get("max_marks", 5.0))
             total_max_marks += max_marks

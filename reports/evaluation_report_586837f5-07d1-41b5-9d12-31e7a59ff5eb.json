@@ -1,0 +1,20 @@
+{
+    "id": "586837f5-07d1-41b5-9d12-31e7a59ff5eb",
+    "mode": "evaluate",
+    "model": "codbert_base",
+    "ocr_provider": "gemini",
+    "total_marks": 5.0,
+    "obtained_marks": 5.0,
+    "percentage": 100.0,
+    "overall_summary": "Script evaluated with codbert_base (gemini OCR). Overall score: 5/5 (100.0%). Evaluated 1 descriptive question(s).",
+    "questions": [
+        {
+            "question": "1a",
+            "marks": 5.0,
+            "max_marks": 5.0,
+            "semantic_score": 1.0,
+            "confidence": 0.99,
+            "feedback": "Awarded 5 out of 5 marks (100.0%). Semantic similarity: 100%, Confidence: 99%.\nExcellent answer covering all core points accurately."
+        }
+    ]
+}

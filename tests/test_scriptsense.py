@@ -17,8 +17,10 @@ from backend.ocr.gemini_ocr import GeminiOCR
 from backend.ocr.qwen_ocr import QwenOCR
 from backend.core.config import settings
 from backend.main import app
+from backend.api.hitl import router as hitl_router
 from backend.core.database import Base, SessionLocal, init_db
-from backend.models.database_models import ModelRegistry
+from backend.models.database_models import HITLItem, ModelRegistry
+from backend.models.schemas import TrainingStartRequest
 from backend.ocr.pdf_utils import render_pdf_to_images, is_pdf
 from backend.training.prepare_dataset import split_and_prepare_dataset
 from backend.training.train import run_fine_tuning, get_next_model_version
@@ -43,6 +45,51 @@ def test_next_model_version_accounts_for_database_registry(tmp_path, monkeypatch
     engine.dispose()
 
 
+def test_training_request_validates_user_defined_model_names():
+    request = TrainingStartRequest(strategy="create_new", model_name="answer_model-v1")
+    assert request.model_name == "answer_model-v1"
+
+    with pytest.raises(ValueError):
+        TrainingStartRequest(strategy="create_new", model_name="../outside")
+    with pytest.raises(ValueError):
+        TrainingStartRequest(strategy="create_new", model_name="codbert_base")
+    with pytest.raises(ValueError):
+        TrainingStartRequest(strategy="create_new", model_name="CON")
+
+
+def test_fine_tuning_updates_named_checkpoint_in_place(tmp_path, monkeypatch):
+    models_dir = tmp_path / "models"
+    models_dir.mkdir()
+    monkeypatch.setattr("backend.training.train.MODELS_DIR", models_dir)
+    monkeypatch.setattr(
+        "backend.training.train.split_and_prepare_dataset",
+        lambda: (
+            [{
+                "student_answer": "Objects inherit behavior.",
+                "reference_answer": "Objects inherit behavior.",
+                "rubric": {"max_marks": 5},
+                "human_marks": 4,
+            }],
+            [],
+            [],
+        ),
+    )
+
+    first_metadata = run_fine_tuning(model_version="answer_model")
+    checkpoint = models_dir / "answer_model"
+    initial_metadata = json.loads((checkpoint / "metadata.json").read_text(encoding="utf-8"))
+
+    updated_metadata = run_fine_tuning(model_version="answer_model", overwrite_existing=True)
+
+    assert first_metadata["model_version"] == "answer_model"
+    assert updated_metadata["model_version"] == "answer_model"
+    assert (checkpoint / "metadata.json").is_file()
+    assert json.loads((checkpoint / "metadata.json").read_text(encoding="utf-8"))["model_version"] == initial_metadata["model_version"]
+    assert [path.name for path in models_dir.iterdir()] == ["answer_model"]
+    with pytest.raises(ValueError, match="already exists"):
+        run_fine_tuning(model_version="answer_model")
+
+
 def test_frontend_uploads_key_and_rubric_json_files():
     """Verify the evaluation UI sends uploaded key/rubric JSON files as multipart form data."""
     app_js = Path("frontend/js/app.js").read_text(encoding="utf-8")
@@ -54,6 +101,20 @@ def test_frontend_uploads_key_and_rubric_json_files():
     assert "state.rubricsFile" in app_js
     assert "const endpoint = trainingMode ? '/api/train/evaluate' : '/api/evaluate'" in app_js
     assert "formData.append('ocr_provider', state.config?.ocr_provider || 'gemini')" in app_js
+
+
+def test_reject_all_button_is_wired_to_current_frontend_script_and_api():
+    index_html = Path("frontend/index.html").read_text(encoding="utf-8")
+    app_js = Path("frontend/js/app.js").read_text(encoding="utf-8")
+
+    assert 'id="btn-reject-all-pending"' in index_html
+    assert "/static/js/app.js?v=" in index_html
+    assert "elements.btnRejectAllPending.addEventListener('click', rejectAllPendingItems)" in app_js
+    assert "fetch('/api/hitl/reject-all'" in app_js
+    assert any(
+        route.path == "/api/hitl/reject-all" and "POST" in route.methods
+        for route in hitl_router.routes
+    )
 
 
 def test_predefined_oop_exam_is_removed():
@@ -125,6 +186,26 @@ def test_evaluation_matches_numeric_subquestion_ids_with_or_without_period():
         "Polymorphism allows objects to take many forms."
     )
     assert result["questions"][0]["max_marks"] == 5.0
+
+
+def test_extra_detected_answer_gets_zero_without_increasing_total_marks():
+    result = asyncio.run(ScriptSenseEvaluator().evaluate_script(
+        mode="evaluate",
+        key_answers={"1a": "Polymorphism allows objects to take many forms."},
+        rubrics={"1a": {"max_marks": 5.0, "criteria": []}},
+        student_answers={
+            "1a": "Polymorphism allows objects to take many forms.",
+            "1b": "in a program",
+        },
+    ))
+
+    extra_answer = next(question for question in result["questions"] if question["question"] == "1b")
+    assert extra_answer["marks"] == 0.0
+    assert extra_answer["max_marks"] == 0.0
+    assert extra_answer["student_answer"] == "in a program"
+    assert "not present in the answer key or rubric" in extra_answer["feedback"]
+    assert result["total_marks"] == 5.0
+    assert result["obtained_marks"] == 5.0
 
 
 def test_ocr_without_credentials_does_not_return_predefined_answers(monkeypatch):
@@ -205,6 +286,10 @@ def test_qwen_ocr_uses_versioned_endpoint_and_validates_response(
         assert answers == expected_answers
 
     assert requests[0][0] == "http://127.0.0.1:1234/v1/chat/completions"
+    prompt = requests[0][1]["json"]["messages"][1]["content"][0]["text"]
+    assert "These are hints, not a limit" in prompt
+    assert "Include all detected labels" in prompt
+    assert "Include brief answers and fragments too" in prompt
 
 
 @pytest.mark.parametrize(
@@ -442,6 +527,73 @@ def test_rubric_based_grading():
         assert crit["awarded_marks"] in [0.0, 0.5, 1.0, 1.5, 2.0]
 
 
+def test_explicit_numeric_rubric_awards_correct_checkpoints_only():
+    reference_answer = (
+        "Largest value = 20\n"
+        "Smallest value = 3\n"
+        "Sum = 48\n"
+        "Average = 9.6"
+    )
+    rubric = {
+        "max_marks": 3,
+        "criteria": (
+            "Award 1 mark for the correct largest value (20), "
+            "1 mark for the correct smallest value (3), and "
+            "1 mark for the correct sum (48) and average (9.6). "
+            "If the method is correct but arithmetic contains a minor error, "
+            "award appropriate partial credit."
+        ),
+    }
+
+    incorrect_largest = grading_module.grade(
+        student_answer="Largest number : 80\nSmallest number : 3\nSum : 48\nAvg : 9.6",
+        reference_answer=reference_answer,
+        rubric=rubric,
+        semantic_score=0.42,
+        confidence=0.5,
+    )
+    correct_answer = grading_module.grade(
+        student_answer="Largest number : 20\nSmallest number : 3\nSum : 48\nAvg : 9.6",
+        reference_answer=reference_answer,
+        rubric=rubric,
+        semantic_score=0.42,
+        confidence=0.5,
+    )
+
+    assert incorrect_largest.marks == 2.0
+    assert [item["awarded_marks"] for item in incorrect_largest.criteria_breakdown] == [
+        0.0, 1.0, 1.0
+    ]
+    assert correct_answer.marks == 3.0
+
+
+def test_finetuned_model_evaluation_uses_rubric_checkpoint_marks(tmp_path):
+    sample = {
+        "student_answer": (
+            "Largest number : 80\nSmallest number : 3\nSum : 48\nAvg : 9.6"
+        ),
+        "reference_answer": (
+            "Largest value = 20\nSmallest value = 3\nSum = 48\nAverage = 9.6"
+        ),
+        "rubric": {
+            "max_marks": 3,
+            "criteria": (
+                "Award 1 mark for the correct largest value (20), "
+                "1 mark for the correct smallest value (3), and "
+                "1 mark for the correct sum (48) and average (9.6)."
+            ),
+        },
+        "human_marks": 2,
+    }
+    test_file = tmp_path / "test_split.jsonl"
+    test_file.write_text(json.dumps(sample) + "\n", encoding="utf-8")
+
+    report = evaluate_model_on_test_set("codbert_ft_v14", test_file=test_file)
+
+    assert report["mean_absolute_error"] == 0.0
+    assert report["accuracy_within_0_5_marks"] == 100.0
+
+
 def test_prose_rubric_scores_numbered_answer_points():
     """Prose rubrics should award marks for correctly answered numbered points."""
     cases = [
@@ -554,6 +706,42 @@ def test_hitl_approval_and_rejection():
     assert rejected.status == "rejected"
 
     db.close()
+
+
+def test_reject_all_pending_hitl_items_leaves_approved_items_unchanged():
+    engine = create_engine("sqlite://")
+    Base.metadata.create_all(bind=engine, tables=[HITLItem.__table__])
+    db = sessionmaker(bind=engine)()
+    db.add_all([
+        HITLItem(
+            evaluation_id="bulk-reject-test",
+            question_id=str(index),
+            student_answer="Answer",
+            reference_answer="Reference",
+            rubric_json="{}",
+            ai_marks=0.0,
+            status=status,
+            human_verified=verified,
+        )
+        for index, status, verified in [
+            (1, "pending", False),
+            (2, "pending", False),
+            (3, "approved", True),
+        ]
+    ])
+    db.commit()
+
+    assert hitl_service.reject_all_pending(db) == 2
+    items = {item.question_id: item for item in db.query(HITLItem).all()}
+    assert items["1"].status == "rejected"
+    assert items["1"].human_verified is False
+    assert items["2"].status == "rejected"
+    assert items["3"].status == "approved"
+    assert items["3"].human_verified is True
+
+    db.close()
+    engine.dispose()
+
 
 def test_fine_tuning_pipeline():
     """Verify fine-tuning pipeline creates versioned model and metadata."""
